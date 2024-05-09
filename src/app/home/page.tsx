@@ -49,10 +49,9 @@ const icons = [
 export default function Home(){
     const {}= useScroll()
     return <>
-     <div className="flex flex-col border justify-around items-center min-h-screen w-4/5 md:w-3/5 mx-auto">
+     <div className="flex flex-col justify-around items-center min-h-screen w-4/5 md:w-3/5 mx-auto">
 
         <div className="mt-10">
-            
             <p className="mx-auto bg-emerald-300/20 text-emerald-500 border border-emerald-100 p-1 w-32 rounded-full px-2 text-sm text-center ">Open for Roles</p>
             <h1 className="text-4xl text-left md:text-5xl text-zinc-800 md:w-4/5 md:text-center mx-auto mt-8 ">Hello I'm, <span className="font-medium">Nitin Jaswal</span> , a Software Engineer  <span>&#9881;</span>  who Loves to Build Products</h1>
         </div>
