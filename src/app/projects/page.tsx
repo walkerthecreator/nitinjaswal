@@ -92,7 +92,7 @@ function Projects() {
 
       <div className="p-2">
         <h1 className="text-4xl my-10 font-medium text-center">
-          Things I've Built
+          Things I&apos;ve Built
         </h1>
 
       <div className="text-5xl text-center font-medium w-3/4 mt-20 mx-auto">

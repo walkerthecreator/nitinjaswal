@@ -10,8 +10,8 @@ const page = () => {
         animate={{ y: 0 }}
         transition={{ type: "keyframes" }}
         className="text-3xl z-0 py-10 text-center font-medium text-zinc-600 w-3/4 mx-auto">
-        Namaste, <span className="flex place-items-center"><Image src={"/icons/namaste.png"} className="inline" height={32} width={32} alt="icon" /> </span> I'm Nitin Jaswal, a 23-year-old
-        <Image src={"/icons/howdy.png"} height={32} width={32} alt="icon" /> with a passion for building products, traveling <Image src={"/icons/mountain.png"} height={32} width={32} alt="icon" />, and listening to music <Image src={"/icons/speaker.png"} height={32} width={32} alt="icon" />.
+        Namaste, I&apos;m Nitin Jaswal, a 23-year-old
+        with a passion for building products, traveling, and listening to music.
       </motion.h1>
 
       <motion.img
