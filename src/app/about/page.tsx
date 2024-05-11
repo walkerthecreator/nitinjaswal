@@ -9,7 +9,7 @@ const page = () => {
         initial={{ y: "40px" }}
         animate={{ y: 0 }}
         transition={{ type: "keyframes" }}
-        className="text-3xl z-0 py-10 text-center font-medium text-zinc-600 w-3/4 mx-auto">
+        className="text-2xl w-full md:text-2xl z-0 py-10 text-center font-medium text-zinc-600 md:w-3/4 mx-auto">
         Namaste, I&apos;m Nitin Jaswal, a 23-year-old
         with a passion for building products, traveling, and listening to music.
       </motion.h1>

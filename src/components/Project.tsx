@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { UrlObject } from "url";
 
 
 interface Project{
@@ -15,7 +14,7 @@ interface Project{
 function Project({ title, photo, desc, live, tech, badge } : Project ) {
     return (
         <div className="mt-20">
-            <div className="w-full h-[70vh] group flex items-end justify-center bg-stone-100 rounded-md my-4 overflow-hidden ">
+            <div className="w-full h-60 p-2 md:h-[70vh] group flex items-end justify-center bg-stone-100 rounded-md my-4 overflow-hidden ">
                 <Image
                     src={photo}
                     width="800"
@@ -37,7 +36,7 @@ function Project({ title, photo, desc, live, tech, badge } : Project ) {
                    { desc }
                 </p>
 
-                <div className="flex items-end justify-between ">
+                <div className="flex items-end flex-wrap justify-between ">
                     <Link
                         href={live}
                         target="_blank"

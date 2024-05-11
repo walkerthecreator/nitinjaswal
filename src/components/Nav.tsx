@@ -17,7 +17,7 @@ export default function Nav() {
         setPosition(61);
         setPill("w-[64px] left-0");
         break;
-      case "/home":
+      case "/":
         setPosition(-37);
         setPill("w-[57px] rounded-s-full left-10");
         break;
@@ -39,7 +39,7 @@ export default function Nav() {
       ></motion.span>
       
 
-      <Link href="/home">Home</Link>
+      <Link href="/">Home</Link>
       <Link href="/projects">Projects</Link>
       <Link href="/about">About</Link>
     </nav>
