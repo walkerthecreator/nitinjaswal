@@ -1,5 +1,3 @@
-"use client";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -32,7 +30,7 @@ const page = () => {
 
           <div className="mt-10">
             <h2 className="font-semibold text-xl">Now</h2>
-            <p className="mt-4">I'm Currently looking for Full time opportunities as an fullstack Engineer, but I'm also open to freelance projects and part-time jobs. Feel free to reach out if you'd like to discuss a project or collaboration. I'm excited to work together and create something great!.</p>
+            <p className="mt-4">I&apos;m Currently looking for Full time opportunities as an fullstack Engineer, but I&apos;m also open to freelance projects and part-time jobs. Feel free to reach out if you&apos;d like to discuss a project or collaboration. I&apos;m excited to work together and create something great!.</p>
           </div>
 
           <button className="from-zinc-600 my-10 w-full md:min-w-32 h-fit text-center z-3 m-[2px] bg-gradient-to-br text-zinc-200 relative font-medium to-zinc-800 p-2 px-4 rounded-md flex gap-2 justify-center place-items-center">Get in Touch</button>
