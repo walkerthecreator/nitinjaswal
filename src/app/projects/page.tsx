@@ -2,6 +2,7 @@
 import Project from "@/components/Project";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 const projectsData = [
   {
@@ -32,13 +33,20 @@ const projectsData = [
 
 
 function Projects() {
+
+  const [ show , setShow ] = useState(true)
+
   return (
     <div className="bg-gray-50  mx-auto md:w-4/5 md:pb-20">
+{
 
+  show &&
       <motion.div
         initial={{ y: "-120px", scaleX: 0.8 }}
         animate={{ y: "-40px", scaleX: 1 }}
+        exit={{ y : "-120px" , scaleX : 0.8 }}
         transition={{ delay: 1, type: "just" }}
+        // transition={{ type: "spring", stiffness: 500, damping: 30 }}
         className=" absolute z-50 right-10 w-80 rounded-full bg-zinc-800 text-white p-2 px-4 flex justify-between items-center"
       >
         <Image
@@ -53,7 +61,7 @@ function Projects() {
           <p>mobile</p>
         </div>
         <div>
-          <button className="bg-red-500 p-1 px-3 me-1 rounded-full">
+          <button onClick={()=>{ setShow(false) }} className="bg-red-500 p-1 px-3 me-1 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -93,6 +101,7 @@ function Projects() {
           </motion.button>
         </div>
       </motion.div>
+}
 
       <div className="p-2">
         <h1 className="text-4xl my-10 font-medium text-center">

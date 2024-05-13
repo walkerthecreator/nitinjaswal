@@ -25,3 +25,9 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer components{
+  .highlight{
+    @apply font-medium hover:bg-yellow-100
+  }
+}

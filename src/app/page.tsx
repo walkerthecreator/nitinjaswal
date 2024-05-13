@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "@/components/Button"
+import Link from "next/link";
 
 const icons = [
   {
@@ -23,12 +24,16 @@ const icons = [
     title: "ReactJs",
   },
   {
+    icon : "redux.svg" ,
+    title : "Redux"
+  } ,
+  {
     icon: "tailwindcss.svg",
     title: "TailwindCSS",
   },
   {
     icon: "nodejs.svg",
-    title: "node.svg",
+    title: "NodeJs",
   },
   {
     icon: "expressjs.svg",
@@ -46,6 +51,10 @@ const icons = [
     icon: "postgresql.svg",
     title: "PostgreSQL",
   },
+  {
+    icon : "git.svg" ,
+    title : 'Git'
+  }
 ];
 
 export default function Home() {
@@ -74,8 +83,14 @@ export default function Home() {
         </div>
 
         {/* <button className="from-zinc-100 z-1 bg-gradient-to-br text-zinc-800 relative font-medium shadow-md to-zinc-200  p-2 px-4 w-40 rounded-md hover:shadow-none hover:translate-y-[1px] transition hover:border hover:border-zinc-300"> */}
-            <Button> Let&apos;s Connect
-</Button>
+        <div className="flex gap-2 ">
+            <Button> Let&apos;s Connect</Button>
+            <Link href="https://drive.google.com/file/d/1h4xDoP-8Qb6V0ZclyVOeW04XJuraGYgj/view" 
+              className="from-stone-100 to-stone-200 shadow-inner min-w-32 text-center z-3 m-[2px] bg-gradient-to-br text-zinc-500 relative font-medium  p-2 px-4 rounded-md h-fit flex place-items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-paperclip"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+             Resume
+            </Link>
+        </div>
       </div>
       <section className="bg-white min-w-screen">
         <div className="min-h-screen w-11/12 mx-auto mt-10 bg-white pt-20">
@@ -94,9 +109,9 @@ export default function Home() {
                       Netmax Technologies | June, 2023 - Present{" "}
                     </h2>
                     <ul className="text-stone-700 list-disc list-inside mt-2">
-                      <li>Built UI</li>
-                      <li>work</li>
-                      <li>backend</li>
+                      <li>Built an <span className="highlight">Image Annonation</span> tool for creating Annonations of Tractors for <span className="highlight">New Holland</span>.</li>
+                      <li>Utilized NodeJs, MySQL and FabricJs as the core tech stack.</li>
+                      <li>Assisted in the building and integrated a real-time monitoring system using Node.Js and WebSockets.</li>
                     </ul>
                   </div>
                 </div>
@@ -111,9 +126,10 @@ export default function Home() {
                       Netmax Technologies | January, 2023 - June 2023{" "}
                     </h2>
                     <ul className="text-zinc-700 list-disc list-inside mt-2">
-                      <li>Built UI</li>
-                      <li>work</li>
-                      <li>backend </li>
+                      <li>Revamped UI and Improved UX for Various Client Web Apps </li>
+                      <li>Contributed to web apps  involving JavaScript, jQuery, CSS,HTML and MySQL.</li>
+                      <li>Implemented backend functionalities, gaining hands-on experience in Node.js
+along with Express.js.</li>
                     </ul>
                   </div>
                 </div>
