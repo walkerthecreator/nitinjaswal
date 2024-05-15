@@ -64,21 +64,21 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col justify-around items-center min-h-screen w-11/12  md:w-3/5 mx-auto">
-        <div className="mt-10">
+        <div className="mt-10 w-[95%]">
           <div onMouseOver={()=>{ setShow(true) }} onMouseOut={()=>{ setShow(false) }} className="mx-auto cursor-pointer hover:scale-105 transition-transform shadow-inner shadow-emerald-200 relative bg-emerald-300/20 text-emerald-500 border border-emerald-100 p-1 w-32 rounded-full px-2 text-sm text-center ">
             Open for Roles
             {show && (
               <motion.div
               initial={{ y : "0" , scale : 0.7 }}
               animate={{ y : "-20px" , scale : 1 }}
-              className="absolute bg-zinc-700 -left-6 -top-24 w-44 rounded-md p-3 text-zinc-200">
+              className="absolute z-50 bg-zinc-700 -left-6 -top-24 w-44 rounded-md p-3 text-zinc-200">
                 I&apos;m Open for Full-time, Part-time, Freelancing Oppurtunities
               </motion.div>
             )}
-          </div>
+          </div>  
           <div className="text-6xl text-left md:text-6xl text-zinc-800 md:w-4/5 md:text-center mx-auto mt-8 ">
             <span className="text-3xl text-zinc-600">Hi I&apos;m, Nitin Jaswal </span>
-            <h1 className="font-semibold py-4 bg-gradient-to-b text-transparent bg-clip-text  from-zinc-500 to-zinc-800">
+            <h1 className="font-semibold py-4 bg-gradient-to-b text-transparent bg-clip-text from-zinc-500 to-zinc-800">
                building products and experiences.
             </h1>
 
@@ -190,7 +190,7 @@ export default function Home() {
                 alt="nitin"
               ></Image>
             </div>
-            <div className="h-80 w-60 bg-white shadow rounded flex justify-center items-start pt-3 -rotate-1 hover:rotate-0 transition-transform">
+            <div className="h-80 w-60 bg-white shadow rounded flex justify-center items-start pt-3 rotate-2 hover:rotate-0 transition-transform">
               <Image
                 src={"/images/nitin-second.jpg"}
                 className="rounded"
