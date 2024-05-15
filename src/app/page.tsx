@@ -82,7 +82,7 @@ export default function Home() {
                building products and experiences.
             </h1>
 
-            <p className="text-lg pt-4">a <span className="font-medium">Fullstack Software Engineer</span> who's passionate about building products.</p>
+            <p className="text-lg pt-4">a <span className="font-medium">Fullstack Software Engineer</span> who&apos;s passionate about building products.</p>
           </div>
         </div>
 
