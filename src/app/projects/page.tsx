@@ -10,7 +10,10 @@ const projectsData = [
     badge : "FullStack" ,
     photo : "/images/ratemypg.png" ,
     live : "https:/ratemypg-gamma.vercel.app" ,
-    desc : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum" ,
+    desc : `Developed using Next.js, this platform redefines the way users discover and review PG accommodations.
+    Leveraging advanced features like caching and debouncing, RateMyPG ensures a seamless and responsive user experience. With SSR (Server-Side Rendering) implemented, users enjoy swift page loads and optimal performance.
+    NextAuth handles JWT authentication and OAuth integrations, guaranteeing secure user access and personalized interactions. The platform prioritizes anonymity, empowering users to share candid reviews without compromising privacy.
+    Deployed on Vercel.` ,
     tech : ["NextJs" , "TailwindCSS" , "MongoDB"]
   } ,
   {
@@ -18,7 +21,9 @@ const projectsData = [
     badge : "Landing Page" ,
     photo : "/images/skulltrooper.png" ,
     live : "https://skulltrooper.in" ,
-    desc : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum" ,
+    desc : `a landing page crafted with simplicity and efficiency in mind. Built using HTML and Tailwind CSS, our minimalist design ensures a clean and intuitive user experience.
+    Powered by Formik, our forms deliver seamless interactions, making it easy for users to connect with us and access our services. 
+    `,
     tech : ["HTML" , "TailwindCSS" , "Javascript"]
   } ,
   {
@@ -26,7 +31,7 @@ const projectsData = [
     badge : "FullStack" ,
     photo : "/images/indian.png" ,
     live : "" ,
-    desc : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum" ,
+    desc : `The project involves developing a news posting website for the Canadian market using Node.js and EJS for server-side rendering. It incorporates advanced features like debouncing for optimized user input handling, pagination for better content loading, and responsive design for optimal viewing across devices. The website is built from scratch and deployed on a Virtual Private Server (VPS) for dedicated resources and enhanced security. The project showcases proficiency in web development technologies, including Node.js, EJS, TailwindCSS, and VPS deployment strategies, resulting in a robust news publishing platform.` ,
     tech : ["NodeJS" , "EJS" , "MongoDB" , "TailwindCSS"]
   }
 ]

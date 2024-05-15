@@ -76,10 +76,14 @@ export default function Home() {
               </motion.div>
             )}
           </div>
-          <h1 className="text-4xl text-left md:text-5xl text-zinc-800 md:w-4/5 md:text-center mx-auto mt-8 ">
-            Hello I&apos;m, <span className="font-medium">Nitin Jaswal</span> ,
-            a Software Engineer <span>&#9881;</span> who Loves to Build Products
-          </h1>
+          <div className="text-6xl text-left md:text-6xl text-zinc-800 md:w-4/5 md:text-center mx-auto mt-8 ">
+            <span className="text-3xl text-zinc-600">Hi I&apos;m, Nitin Jaswal </span>
+            <h1 className="font-semibold py-4 bg-gradient-to-b text-transparent bg-clip-text  from-zinc-500 to-zinc-800">
+               building products and experiences.
+            </h1>
+
+            <p className="text-lg pt-4">a <span className="font-medium">Fullstack Software Engineer</span> who's passionate about building products.</p>
+          </div>
         </div>
 
         {/* <button className="from-zinc-100 z-1 bg-gradient-to-br text-zinc-800 relative font-medium shadow-md to-zinc-200  p-2 px-4 w-40 rounded-md hover:shadow-none hover:translate-y-[1px] transition hover:border hover:border-zinc-300"> */}
@@ -123,20 +127,20 @@ export default function Home() {
                   </h2>
                   <div className="">
                     <h2 className="my-1 text-zinc-400 text-sm">
-                      Netmax Technologies | January, 2023 - June 2023{" "}
+                      Netmax Technologies | January, 2023 - June 2023
                     </h2>
                     <ul className="text-zinc-700 list-disc list-inside mt-2">
                       <li>Revamped UI and Improved UX for Various Client Web Apps </li>
                       <li>Contributed to web apps  involving JavaScript, jQuery, CSS,HTML and MySQL.</li>
                       <li>Implemented backend functionalities, gaining hands-on experience in Node.js
-along with Express.js.</li>
+                        along with Express.js.</li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="md:w-2/5 flex flex-col  gap-4 md:gap-2">
-              <div className="bg-stone-100 border border-stone-300 rounded-lg p-4">
+            <div className="md:w-2/5 flex flex-col gap-4 md:gap-2">
+              <div className="bg-stone-100 border h-full border-stone-300 rounded-lg p-4">
                 <h1 className="text-zinc-400">Skills</h1>
                 <div className="mt-2 flex gap-2 flex-wrap">
                   {icons.map((item, index) => {
@@ -158,7 +162,7 @@ along with Express.js.</li>
                   })}
                 </div>
               </div>
-              <div className="bg-stone-100 border border-stone-300 rounded-lg p-4">
+              <div className="bg-stone-100 border border-stone-300 rounded-lg p-4 ">
                 <h3 className="text-zinc-400">Education</h3>
                 <h1 className="text-3xl font-medium my-2">
                   B.tech Computer Science & Engineering
@@ -205,10 +209,10 @@ along with Express.js.</li>
               ></Image>
             </div>
           </div>
-          <div className="mx-auto w-40 flex place-items-center mt-20">
-            <button className="from-zinc-600 z-1 bg-gradient-to-br text-zinc-200 relative font-medium shadow-md shadow-zinc-200 to-zinc-800  p-2 px-4 w-40 rounded-md hover:shadow-none transition border-2 border-zinc-700 ">
+          <div className="mx-auto w-40 flex  place-items-center mt-20">
+            <Link href={'/about'} className="from-zinc-600 text-center z-1 bg-gradient-to-br text-zinc-200 relative font-medium shadow-md shadow-zinc-200 to-zinc-800  p-2 px-4 w-40 rounded-md hover:shadow-none transition border-2 border-zinc-700 ">
               Read More
-            </button>
+            </Link >
           </div>
         </div>
 

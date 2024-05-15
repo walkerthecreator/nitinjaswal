@@ -20,7 +20,7 @@ const page = () => {
                     </Link>
                   </div>
               </div>
-              <Image src="/images/nitin-2.jpg" alt="Nitin-photo" className="rounded-md" width={120} height={80}></Image>
+              <Image draggable="false" src="/images/nitin-2.jpg" alt="Nitin-photo" className="rounded-md" width={120} height={80}></Image>
           </div>
 
           <div className="mt-10">
@@ -30,10 +30,12 @@ const page = () => {
 
           <div className="mt-10">
             <h2 className="font-semibold text-xl">Now</h2>
-            <p className="mt-4">I&apos;m Currently looking for Full time opportunities as an fullstack Engineer, but I&apos;m also open to freelance projects and part-time jobs. Feel free to reach out if you&apos;d like to discuss a project or collaboration. I&apos;m excited to work together and create something great!.</p>
+            <p className="mt-4">I&apos;m Currently looking for Full time opportunities as an Fullstack Engineer, but I&apos;m also open to freelance projects and part-time jobs. Feel free to reach out if you&apos;d like to discuss a project or collaboration. I&apos;m excited to work together and create something great!.</p>
           </div>
 
-          <button className="from-zinc-600 my-10 w-full md:min-w-32 h-fit text-center z-3 m-[2px] bg-gradient-to-br text-zinc-200 relative font-medium to-zinc-800 p-2 px-4 rounded-md flex gap-2 justify-center place-items-center">Get in Touch</button>
+          <button className="text-zinc-100 my-10 shadow-inner shadow-zinc-400 w-full md:min-w-32 
+          bg-gradient-to-br from-zinc-600 to-zinc-700 border
+          font-medium p-2 rounded-md">Get in Touch</button>
 
     </div>
   );
