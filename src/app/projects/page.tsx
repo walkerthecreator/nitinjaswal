@@ -149,7 +149,7 @@ function Projects() {
                 <input className="p-2 px-3 bg-zinc-50 rounded-md border border-zinc-200" type="text" placeholder="Enter Name" name="name"/>
                 <input className="mt-2 p-2 px-3 bg-zinc-50 rounded-md border border-zinc-200" type="email" placeholder="Enter Email" name="email" />
 
-                <p className="text-zinc-400 my-2 text-sm text-center">We'll Get back to you with-in 24 hours.</p>
+                <p className="text-zinc-400 my-2 text-sm text-center">We&apos;ll Get back to you with-in 24 hours.</p>
               </div>
 
               <button className="bg-zinc-700 w-3/5 mx-auto p-3 shadow-inner shadow-zinc-400  text-zinc-200 font-semibold rounded-lg">Book Free call</button>
