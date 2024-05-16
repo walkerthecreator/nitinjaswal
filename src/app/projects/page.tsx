@@ -40,9 +40,11 @@ const projectsData = [
 function Projects() {
 
   const [ show , setShow ] = useState(true)
+  const [ drawer , setDrawer ] = useState(false)
 
   return (
-    <div className="bg-gray-50  mx-auto md:w-4/5 md:pb-20">
+    <div className={"relative " + (drawer ? "max-h-screen overflow-hidden"  : "" )}>
+    <div className={"bg-gray-50 mx-auto md:w-4/5 md:pb-20 " + (drawer ? "opacity-80" : "opacity-100") }>
 {
 
   show &&
@@ -50,7 +52,7 @@ function Projects() {
         initial={{ y: "-120px", scaleX: 0.8 }}
         animate={{ y: "-40px", scaleX: 1 }}
         exit={{ y : "-120px" , scaleX : 0.8 }}
-        transition={{ delay: 1, type: "just" }}
+        transition={{ delay: 0.4, type: "just" }}
         // transition={{ type: "spring", stiffness: 500, damping: 30 }}
         className=" absolute z-50 right-10 w-80 rounded-full bg-zinc-800 text-white p-2 px-4 flex justify-between items-center"
       >
@@ -84,7 +86,7 @@ function Projects() {
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
           </button>
-          <motion.button className="bg-green-600 p-1 px-3 rounded-full ms-1"
+          <motion.button onClick={()=>{ setDrawer(true) ; setShow(false) }} className="bg-green-600 p-1 px-3 rounded-full ms-1"
           // animate={{ x : [0 , -1 , 0 , 1 , 0 , -1 , 0 , 1 ] }}
           animate={{ scale : [ 0.9 , 1   ] }}
           transition={{ duration : 1 , repeat : Infinity }}
@@ -124,8 +126,38 @@ function Projects() {
         }
 
       </div>
+      </div>
 
-    </div>
+      {
+        drawer 
+        && 
+        <motion.div
+        initial={{ y : 400 }}
+        animate={{ y : 0 }} 
+        exit={{ y : -400 }}
+        className="h-full bg-white w-full absolute rounded-t-3xl p-2 shadow-lg shadow-black top-10">
+
+
+            <button onClick={()=>{ setDrawer(false) }} className="bg-stone-100 p-3 rounded-full float-end">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+
+          <h1 className="text-4xl font-medium py-4 text-center mt-10">Get in Touch </h1>
+
+            <div className="flex flex-col md:w-3/5 mx-auto mt-10 gap-20">
+              <div className="md:w-3/5 mx-auto flex flex-col">
+                <input className="p-2 px-3 bg-zinc-50 rounded-md border border-zinc-200" type="text" placeholder="Enter Name" name="name"/>
+                <input className="mt-2 p-2 px-3 bg-zinc-50 rounded-md border border-zinc-200" type="email" placeholder="Enter Email" name="email" />
+
+                <p className="text-zinc-400 my-2 text-sm text-center">We'll Get back to you with-in 24 hours.</p>
+              </div>
+
+              <button className="bg-zinc-700 w-3/5 mx-auto p-3 shadow-inner shadow-zinc-400  text-zinc-200 font-semibold rounded-lg">Book Free call</button>
+            </div>
+        </motion.div>
+      }
+      </ div>
+
   );
 }
 
