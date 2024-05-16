@@ -60,25 +60,26 @@ const icons = [
 export default function Home() {
   const [show, setShow] = useState(false);
 
-  const {} = useScroll();
   return (
     <>
-      <div className="flex flex-col justify-around items-center min-h-screen w-11/12  md:w-3/5 mx-auto">
-        <div className="mt-10 w-[95%]">
+      <div className="flex flex-col justify-evenly -translate-y-10 items-center min-h-screen w-11/12  md:w-3/5 mx-auto">
+        <div className="mt-10">
+
           <div onMouseOver={()=>{ setShow(true) }} onMouseOut={()=>{ setShow(false) }} className="mx-auto cursor-pointer hover:scale-105 transition-transform shadow-inner shadow-emerald-200 relative bg-emerald-300/20 text-emerald-500 border border-emerald-100 p-1 w-32 rounded-full px-2 text-sm text-center ">
             Open for Roles
             {show && (
               <motion.div
               initial={{ y : "0" , scale : 0.7 }}
               animate={{ y : "-20px" , scale : 1 }}
-              className="absolute z-50 bg-zinc-700 -left-6 -top-24 w-44 rounded-md p-3 text-zinc-200">
-                I&apos;m Open for Full-time, Part-time, Freelancing Oppurtunities
+              className="absolute z-20 bg-zinc-700 -left-6 -top-[88px] w-44  rounded-md p-3 text-zinc-200">
+                I&apos;m Open for Full-time, Part-time and Freelancing Oppurtunities
               </motion.div>
             )}
           </div>  
-          <div className="text-6xl text-left md:text-6xl text-zinc-800 md:w-4/5 md:text-center mx-auto mt-8 ">
+
+        <div className="text-5xl  text-left md:text-6xl text-zinc-800 md:w-4/5 md:text-center mx-auto mt-4">
             <span className="text-3xl text-zinc-600">Hi I&apos;m, Nitin Jaswal </span>
-            <h1 className="font-semibold py-4 bg-gradient-to-b text-transparent bg-clip-text from-zinc-500 to-zinc-800">
+            <h1 className="font-bold py-4 bg-gradient-to-b text-transparent bg-clip-text from-zinc-600 to-zinc-800">
                building products and experiences.
             </h1>
 
@@ -86,20 +87,20 @@ export default function Home() {
           </div>
         </div>
 
-        {/* <button className="from-zinc-100 z-1 bg-gradient-to-br text-zinc-800 relative font-medium shadow-md to-zinc-200  p-2 px-4 w-40 rounded-md hover:shadow-none hover:translate-y-[1px] transition hover:border hover:border-zinc-300"> */}
-        <div className="flex gap-2 ">
+        <div className="flex flex-col w-full md:w-fit md:flex-row gap-2 ">
             <Button> Let&apos;s Connect</Button>
             <Link href="https://drive.google.com/file/d/1h4xDoP-8Qb6V0ZclyVOeW04XJuraGYgj/view" 
-              className="from-stone-100 to-stone-200 shadow-inner min-w-32 text-center z-3 m-[2px] bg-gradient-to-br text-zinc-500 relative font-medium  p-2 px-4 rounded-md h-fit flex place-items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-paperclip"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+              className="from-stone-100 to-stone-200 justify-center shadow-inner w-full md:min-w-44 text-center z-3 m-[2px] bg-gradient-to-br text-zinc-500 relative font-medium  p-2 px-4 rounded-md h-fit flex place-items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-paperclip"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
              Resume
             </Link>
         </div>
+
       </div>
       <section className="bg-white min-w-screen">
-        <div className="min-h-screen w-11/12 mx-auto mt-10 bg-white pt-20">
+        <div className="min-h-screen w-11/12 mx-auto mt-10 pt-20">
           <div className="flex flex-col md:flex-row gap-4 md:gap-2 mt-20">
-            <div className="rounded-lg  bg-zinc-90/80 bg-stone-100 border border-stone-300 md:w-3/5 p-4">
+            <div className="rounded-lg bg-stone-50 border border-stone-300 md:w-3/5 p-4">
               <h1 className="text-zinc-400">Experience</h1>
 
               <div className="border-s ms-3">
@@ -140,7 +141,7 @@ export default function Home() {
               </div>
             </div>
             <div className="md:w-2/5 flex flex-col gap-4 md:gap-2">
-              <div className="bg-stone-100 border h-full border-stone-300 rounded-lg p-4">
+              <div className="bg-stone-50 border h-full border-stone-300 rounded-lg p-4">
                 <h1 className="text-zinc-400">Skills</h1>
                 <div className="mt-2 flex gap-2 flex-wrap">
                   {icons.map((item, index) => {
@@ -162,7 +163,7 @@ export default function Home() {
                   })}
                 </div>
               </div>
-              <div className="bg-stone-100 border border-stone-300 rounded-lg p-4 ">
+              <div className="bg-zinc-50 border border-stone-300 rounded-lg p-4 ">
                 <h3 className="text-zinc-400">Education</h3>
                 <h1 className="text-3xl font-medium my-2">
                   B.tech Computer Science & Engineering

@@ -113,7 +113,7 @@ function Projects() {
           Things I&apos;ve Built
         </h1>
 
-      <div className="text-4xl text-justify md:text-5xl md:text-center font-medium w-11/12 md:w-3/4 mt-20 mx-auto">
+      <div className="text-3xl font-semibold text-justify md:text-5xl md:text-center md:font-medium w-11/12 md:w-3/4 mt-20 mx-auto">
         <h1 className="text-zinc-400">I&apos;ve spent last <span className="text-zinc-700">2 Years</span> Building wide range of <span className="text-zinc-700">Aesthetically pleasing functional Web Apps</span></h1>
       </div>
 
