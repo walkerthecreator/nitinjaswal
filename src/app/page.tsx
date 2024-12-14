@@ -220,8 +220,10 @@ export default function Home() {
         <div className="bg-zinc-900 flex justify-between rounded-t-md p-4 mx-2 md:mx-10 translate-y-12 text-white">
           <h2 className="text-2xl">Nitin Jaswal</h2>
           <div className="flex gap-4 w-1/7 ">
-            <span>
+          <Link href="https://github.com/walkerthecreator" className="">
+          <span>
               <svg
+            
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -236,6 +238,8 @@ export default function Home() {
                 <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
               </svg>
             </span>
+          </Link>
+
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
