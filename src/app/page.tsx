@@ -101,9 +101,28 @@ export default function Home() {
         <div className="min-h-screen w-11/12 mx-auto mt-10 pt-20">
           <div className="flex flex-col md:flex-row gap-4 md:gap-2 mt-20">
             <div className="rounded-lg bg-stone-50 border border-stone-300 md:w-3/5 p-4">
-              <h1 className="text-zinc-400">Experience</h1>
+              <h1 className="text-zinc-700">Experience</h1>
+
 
               <div className="border-s ms-3">
+                <div className="mt-4 ms-4 relative">
+                  <div className="bg-green-600 rounded-full -left-[22px] top-2 p-[6px] absolute"></div>
+                  <h2 className="text-xl font-medium text-stone-700">
+                    Full Stack Engineer
+                  </h2>
+                  <div className="">
+                    <h2 className="my-1 text-zinc-400 text-sm">
+                      September, 2024 - Present{" "}
+                    </h2>
+                    <ul className="text-stone-700 list-disc list-inside mt-2">
+                      <li>Develop an WLS to calculate and offset user emissions with seamless integration ready to
+                      integrate with various platforms.</li>
+                      <li>Enable real-time updates via configurable webhooks and callback mechanisms.</li>
+                      <li>Architect the gateway with rate-limiting, caching, and auto-scaling
+                      mechanisms to ensure uptime and performance.</li>
+                    </ul>
+                  </div>
+                </div>
                 <div className="mt-4 ms-4 relative">
                   <div className="bg-zinc-400 rounded-full -left-[22px] top-2 p-[6px] absolute"></div>
                   <h2 className="text-xl font-medium text-stone-700">
@@ -111,7 +130,7 @@ export default function Home() {
                   </h2>
                   <div className="">
                     <h2 className="my-1 text-zinc-400 text-sm">
-                      Netmax Technologies | June, 2023 - Present{" "}
+                      June, 2023 - June, 2024
                     </h2>
                     <ul className="text-stone-700 list-disc list-inside mt-2">
                       <li>Built an <span className="highlight">Image Annonation</span> tool for creating Annonations of Tractors for <span className="highlight">New Holland</span>.</li>
@@ -128,7 +147,7 @@ export default function Home() {
                   </h2>
                   <div className="">
                     <h2 className="my-1 text-zinc-400 text-sm">
-                      Netmax Technologies | January, 2023 - June 2023
+                      January, 2023 - June 2023
                     </h2>
                     <ul className="text-zinc-700 list-disc list-inside mt-2">
                       <li>Revamped UI and Improved UX for Various Client Web Apps </li>
@@ -162,13 +181,6 @@ export default function Home() {
                     );
                   })}
                 </div>
-              </div>
-              <div className="bg-zinc-50 border border-stone-300 rounded-lg p-4 ">
-                <h3 className="text-zinc-400">Education</h3>
-                <h1 className="text-3xl font-medium my-2">
-                  B.tech Computer Science & Engineering
-                </h1>
-                <p className="mt-4 ">2019 - 2023</p>
               </div>
             </div>
           </div>
