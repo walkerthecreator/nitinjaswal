@@ -5,43 +5,20 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 export default function Nav() {
-  const [position, setPosition] = useState(60);
-  const [pill, setPill] = useState("");
-  const url = usePathname();
-  let prev = 0;
-
-  useEffect(() => {
-    prev = position;
-    switch (url) {
-      case "/projects":
-        setPosition(61);
-        setPill("w-[64px] left-0");
-        break;
-      case "/":
-        setPosition(-37);
-        setPill("w-[57px] rounded-s-full left-10");
-        break;
-      case "/about":
-        setPosition(85);
-        setPill("w-[56px] rounded-e-full left-11");
-        break;
-    }
-  });
 
   return (
-    <nav className="z-10 sticky shadow-lg top-2 border bg-neutral-800 text-white border-zinc-200 mt-4 p-2 px-4 rounded-full w-fit mx-auto flex justify-center gap-3 text-sm">
-
-      <motion.span
-        className={ `-z-10 rounded absolute bg-neutral-600 h-7 top-[4px] ${pill}`}
-        initial={{ x: prev }}
-        animate={{ x: position }}
-        transition={{ type: "keyframes" }}
-      ></motion.span>
-      
-
-      <Link href="/">Home</Link>
-      <Link href="/projects">Projects</Link>
-      <Link href="/about">About</Link>
+    <nav className="z-10 w-full fixed shadow-lg bottom-0 border-t bg-neutral-800 text-white border-neutral-500 mt-4 p-2 py-3 mx-auto flex justify-center gap-3 ">
+    
+      <div className="flex justify-between w-full max-w-2xl items-center">
+      <div className="flex items-center gap-2">
+        <div className="bg-gradient-to-br font-medium from-green-400 to-lime-400 h-8 w-8 rounded-full text-lg" />
+        <Link href="/">Nitin Jaswal</Link>
+      </div>
+      <div className="flex items-center gap-4">
+    <Link href="/projects" className="hover:-translate-y-1 transition-transform">Projects</Link>
+    <Link href="/about" className="hover:-translate-y-1 transition-transform">About</Link>
+      </div>
+      </div>
     </nav>
   );
 }

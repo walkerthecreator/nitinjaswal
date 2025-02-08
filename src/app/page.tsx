@@ -58,24 +58,11 @@ const icons = [
 ];
 
 export default function Home() {
-  const [show, setShow] = useState(false);
 
   return (
     <>
       <div className="flex flex-col justify-evenly -translate-y-10 items-center min-h-screen w-11/12  md:w-3/5 mx-auto">
         <div className="mt-10">
-
-          <div onMouseOver={()=>{ setShow(true) }} onMouseOut={()=>{ setShow(false) }} className="mx-auto cursor-pointer hover:scale-105 transition-transform shadow-inner shadow-emerald-200 relative bg-emerald-300/20 text-emerald-500 border border-emerald-100 p-1 w-32 rounded-full px-2 text-sm text-center ">
-            Open for Roles
-            {show && (
-              <motion.div
-              initial={{ y : "0" , scale : 0.7 }}
-              animate={{ y : "-20px" , scale : 1 }}
-              className="absolute z-20 bg-zinc-700 -left-6 -top-[88px] w-44  rounded-md p-3 text-zinc-200">
-                I&apos;m Open for Full-time, Part-time and Freelancing Oppurtunities
-              </motion.div>
-            )}
-          </div>  
 
         <div className="text-5xl  text-left md:text-6xl text-zinc-800 md:w-4/5 md:text-center mx-auto mt-4">
             <span className="text-3xl text-zinc-600">Hi I&apos;m, Nitin Jaswal </span>
@@ -97,7 +84,7 @@ export default function Home() {
         </div>
 
       </div>
-      <section className="bg-white min-w-screen">
+      <section className="bg-zinc-600 min-w-screen">
         <div className="min-h-screen w-11/12 mx-auto mt-10 pt-20">
           <div className="flex flex-col md:flex-row gap-4 md:gap-2 mt-20">
             <div className="rounded-lg bg-stone-50 border border-stone-300 md:w-3/5 p-4">
