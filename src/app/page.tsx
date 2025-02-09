@@ -7,6 +7,12 @@ import Button from "@/components/Button"
 import Link from "next/link";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sparkle } from "lucide-react";
+import { Instrument_Serif } from "next/font/google";
+
+const instrumentSerif = Instrument_Serif({ 
+  weight: '400',
+  subsets: ['latin'],
+})
 
 const icons = [
   {
@@ -65,8 +71,6 @@ export default function Home() {
     <>
     <div className="min-w-screen min-h-screen">
       <ScrollArea className="h-[calc(100vh-3.5rem)]">
-
-
 
       <section className="flex flex-col justify-evenly -translate-y-10 items-center min-h-screen w-11/12  md:w-3/5 mx-auto">
         
@@ -149,8 +153,8 @@ export default function Home() {
       <section className="max-w-xl mx-auto min-h-screen flex flex-col gap-10 items-center justify-center">
         <h1 className="text-xl font-semibold">Tech Cloud</h1>
         <div className="grid grid-cols-4 gap-8">
-          {icons.map(item => (
-            <div className="flex flex-col items-center gap-2 group">
+          {icons.map((item , index) => (
+            <div key={index} className="flex flex-col items-center gap-2 group">
               <img src={item.icon} alt={item.title} className="h-12 w-12 saturate-0 invert" />
               <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity">{item.title}</span>
             </div>
@@ -161,10 +165,14 @@ export default function Home() {
 
       <section className="max-w-4xl mx-auto min-h-screen flex flex-col gap-10 items-center justify-center">
           <div className="w-full h-full relative grid grid-cols-2 rounded-xl overflow-hidden">
-              <div className="bg-neutral-800 h-full p-6 flex flex-col items-center justify-center gap-8">
-                  <h2 className="font-bold text-5xl">Let's build your Next Big Idea</h2>
-                  <button className="w-full bg-primary p-3 rounded-xl flex items-center justify-center gap-2 ring ring-neutral-700">
+              <div className="bg-neutral-800 h-full p-6 flex flex-col items-center justify-center gap-4">
+                  <h2 className={`${instrumentSerif.className} font-bold text-4xl`}>Let's build your Next Big Idea</h2>
+                  <button className="w-full bg-primary p-3 rounded-xl flex items-center mt-4 justify-center gap-2 ring ring-neutral-700">
                   <Sparkle className="h-4 w-4" />Get in Touch</button>
+                  <div className="flex items-center gap-1">
+                    <div className="bg-green-500 h-2 w-2 rounded-xl "/>
+                    <span className="text-xs">Open for New Oppurtuinities</span>
+                  </div>
               </div>
               <img src="/images/me.jpg" alt="landscape" className="h-[500px] w-full object-cover object-top" />
           </div>
