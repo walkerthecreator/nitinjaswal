@@ -52,13 +52,13 @@ function Projects() {
 
   return (
     <div className={"relative " + (drawer ? "max-h-screen overflow-hidden"  : "" )}>
-    <div className={"bg-gray-50 mx-auto md:w-4/5 md:pb-20 " + (drawer ? "opacity-80" : "opacity-100") }>
+    <div className={"bg-primary mx-auto md:w-4/5 md:pb-20 " + (drawer ? "opacity-80" : "opacity-100") }>
 {
 
   show &&
       <motion.div
         initial={{ y: "-120px", scaleX: 0.8 }}
-        animate={{ y: "-40px", scaleX: 1 }}
+        animate={{ y: "10px", scaleX: 1 }}
         exit={{ y : "-120px" , scaleX : 0.8 }}
         transition={{ delay: 0.4, type: "just" }}
         // transition={{ type: "spring", stiffness: 500, damping: 30 }}
