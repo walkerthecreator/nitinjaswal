@@ -9,11 +9,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { MapPin, Sparkle } from "lucide-react";
 import { Instrument_Serif } from "next/font/google";
 import WorkExperienceCard from "@/components/WorkExperienceCard";
+import { instrumentSerif } from "@/lib/font";
 
-const instrumentSerif = Instrument_Serif({ 
-  weight: '400',
-  subsets: ['latin'],
-})
 
 const icons = [
   {
