@@ -116,7 +116,7 @@ export default function Home() {
                 <h1 className={`${instrumentSerif.className} text-3xl mb-10 text-center`}>Work</h1>
                 <div className="border-s border-neutral-700 ms-3 space-y-10">
                 { 
-                  workExperiences.map(work => (<WorkExperienceCard experience={work} /> ))
+                  workExperiences.map((work , index) => (<WorkExperienceCard key={index} experience={work} /> ))
                 } 
                 </div>
             </div>
@@ -129,7 +129,7 @@ export default function Home() {
           <div className="grid grid-cols-4 gap-8">
             {icons.map((item , index) => (
               <div key={index} className="flex flex-col items-center gap-2 group">
-                <img src={item.icon} alt={item.title} className="h-12 w-12 saturate-0 invert" />
+                <Image width={48} height={48} src={item.icon} alt={item.title} className="h-12 w-12 saturate-0 invert" />
                 <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity">{item.title}</span>
               </div>
             ))}
@@ -140,7 +140,7 @@ export default function Home() {
         <section className="max-w-4xl mx-auto min-h-screen flex flex-col gap-10 items-center justify-center">
             <div className="w-full h-full relative grid grid-cols-2 rounded-xl overflow-hidden">
                 <div className="bg-neutral-800 h-full p-6 flex flex-col items-center justify-center gap-4">
-                    <h2 className={`${instrumentSerif.className} font-bold text-4xl`}>Let's build your Next Big Idea</h2>
+                    <h2 className={`${instrumentSerif.className} font-bold text-4xl`}>Let&apos;s build your Next Big Idea</h2>
                     <button className="w-full bg-white text-primary p-3 rounded-xl flex items-center mt-4 justify-center gap-2 ring ring-neutral-600">
                     <Sparkle className="h-4 w-4" />Get in Touch</button>
                     <div className="flex items-center gap-1">
@@ -148,7 +148,7 @@ export default function Home() {
                       <span className="text-xs">Open for New Oppurtuinities</span>
                     </div>
                 </div>
-                <img src="/images/me.jpg" alt="landscape" className="h-[500px] w-full object-cover object-top" />
+                <Image height={500} src="/images/me.jpg" alt="landscape" className="h-[500px] w-full object-cover object-top" />
             </div>
         </section>
       </ScrollArea>
