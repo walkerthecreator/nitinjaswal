@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import Image from "next/image";
 import Link from "next/link";
+import { instrumentSerif } from "@/lib/font";
 
 const page = () => {
 
@@ -9,9 +10,9 @@ const page = () => {
     <div className="w-4/5 md:w-3/5/ lg:w-2/5 mx-auto mt-20">
           <div className="flex gap-2 items-start">
               <div>
-                <h2 className="text-xl font-semibold">Nitin Jaswal</h2>
-                  <p className="md:w-2/4 mt-4">Full Stack Engineer Focused on Building Products with an attention to Detail.</p>
-                  <div className="mt-3 flex gap-2 text-zinc-700">
+                <h2 className={`text-3xl font-semibold ${instrumentSerif.className}`}>Nitin Jaswal</h2>
+                  <p className="md:w-2/4 mt-2 text-muted/60">Full Stack Engineer Focused on Building Products with an attention to Detail.</p>
+                  <div className="mt-3 flex gap-2 text-zinc-200">
                     <Link href={'https://www.instagram.com/walkerthecreator/'} target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                     </Link>
@@ -27,18 +28,18 @@ const page = () => {
           </div>
 
           <div className="mt-10">
-            <h2 className="font-semibold text-xl">About</h2>
-            <p className="mt-4">As a Full Stack Engineer i have currated multiple web apps. I mostly work with TypeScript, React, NodeJs, and NextJs. I have an over a year of experience in working on FullStack Projects and have a degree in Computer Science & Engineering. I Like Space, Bikes, Mountains, Music, Cosmos and Traveling.</p>
+            <h2 className={`font-semibold text-2xl ${instrumentSerif.className}`}>About</h2>
+            <p className="mt-4 text-muted/60">As a Full Stack Engineer i have currated multiple web apps. I mostly work with TypeScript, React, NodeJs, and NextJs. I have an over a year of experience in working on FullStack Projects and have a degree in Computer Science & Engineering. I Like Space, Bikes, Mountains, Music, Cosmos and Traveling.</p>
           </div>
 
           <div className="mt-10">
-            <h2 className="font-semibold text-xl">Now</h2>
-            <p className="mt-4">I&apos;m Currently looking for Full time opportunities as an Fullstack Engineer, but I&apos;m also open to freelance projects and part-time jobs. Feel free to reach out if you&apos;d like to discuss a project or collaboration. I&apos;m excited to work together and create something great!.</p>
+            <h2 className={`font-semibold text-2xl ${instrumentSerif.className}`}>Now</h2>
+            <p className="mt-4 text-muted/60">I&apos;m Currently looking for Full time opportunities as an Fullstack Engineer, but I&apos;m also open to freelance projects and part-time jobs. Feel free to reach out if you&apos;d like to discuss a project or collaboration. I&apos;m excited to work together and create something great!.</p>
           </div>
 
           <Link href={'https://mail.google.com/mail/u/0/?fs=1&tf=cm'} target="_blank">
-            <button className="text-zinc-100 my-10 text-center shadow-inner shadow-zinc-400 w-full md:min-w-32 
-            bg-gradient-to-br from-zinc-600 to-zinc-700 border
+            <button className="text-zinc-100 my-10 text-center  w-full md:min-w-32 
+            bg-gradient-to-br from-neutral-800 to-neutral-900 border border-neutral-700
             font-medium p-2 rounded-md">Get in Touch</button> 
           </Link>
 
