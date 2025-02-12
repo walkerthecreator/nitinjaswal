@@ -20,7 +20,7 @@ function Project({ title, photo, desc, live, tech, badge } : Project ) {
                     width="800"
                     height="600"
                     alt="ratemypg-project-screenshot"
-                    className="rounded-t-lg translate-y-8  group-hover:translate-y-2 transition-transform"
+                    className="rounded-t-lg translate-y-28 group-hover:translate-y-24 transition-transform"
                 ></Image>
             </div>
 
