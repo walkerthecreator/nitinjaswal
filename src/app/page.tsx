@@ -5,6 +5,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "@/components/Button"
 import Link from "next/link";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { MapPin, Sparkle } from "lucide-react";
+import { Instrument_Serif } from "next/font/google";
+import WorkExperienceCard from "@/components/WorkExperienceCard";
+import { instrumentSerif } from "@/lib/font";
+
 
 const icons = [
   {
@@ -57,237 +63,95 @@ const icons = [
   }
 ];
 
-export default function Home() {
-  const [show, setShow] = useState(false);
+const workExperiences = [
+  {
+    title: "Full Stack Engineer",
+    date: "September, 2024 - Present",
+    isPresent: true,
+    points: [
+      "Developing a WLS to Offset carbon emissions with seamless integration.",
+      "Enabled real-time updates via configurable webhooks and callback mechanisms.",
+      "Architect solution with rate-limiting, caching, and auto-scaling mechanisms."
+    ]
+  },
+  {
+    title: "Full Stack Engineer",
+    date: "June, 2023 - June, 2024",
+    points: [
+      'Built an <span class="highlight">Image Annonation</span> tool for creating Annonations of Tractors for <span class="highlight">New Holland</span>.',
+      "Utilized NodeJs, MySQL and FabricJs as the core tech stack.",
+      "Assisted in the building and integrated a real-time monitoring system using Node.Js and WebSockets."
+    ]
+  },
+  {
+    title: "Frontend Developer Intern",
+    date: "January, 2023 - June 2023",
+    points: [
+      "Revamped UI and Improved UX for Various Client Web Apps",
+      "Contributed to web apps involving JavaScript, jQuery, CSS,HTML and MySQL.",
+      "Implemented backend functionalities, gaining hands-on experience in Node.js along with Express.js."
+    ]
+  }
+];
 
+export default function Home() {
   return (
     <>
-      <div className="flex flex-col justify-evenly -translate-y-10 items-center min-h-screen w-11/12  md:w-3/5 mx-auto">
-        <div className="mt-10">
+    <div className="min-w-screen min-h-screen">
+      <ScrollArea className="h-[calc(100vh-3.5rem)]">
+        <section className="flex flex-col justify-evenly -translate-y-10 items-center min-h-screen w-11/12  md:w-3/5 mx-auto">
+          <motion.h1 
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="w-full max-w-lg text-lg"
+          >
+            Hi, I&apos;m Nitin Jaswal, a Fullstack Engineer who&apos;s passionate about building products and experiences
+          </motion.h1>
+        </section>
 
-          <div onMouseOver={()=>{ setShow(true) }} onMouseOut={()=>{ setShow(false) }} className="mx-auto cursor-pointer hover:scale-105 transition-transform shadow-inner shadow-emerald-200 relative bg-emerald-300/20 text-emerald-500 border border-emerald-100 p-1 w-32 rounded-full px-2 text-sm text-center ">
-            Open for Roles
-            {show && (
-              <motion.div
-              initial={{ y : "0" , scale : 0.7 }}
-              animate={{ y : "-20px" , scale : 1 }}
-              className="absolute z-20 bg-zinc-700 -left-6 -top-[88px] w-44  rounded-md p-3 text-zinc-200">
-                I&apos;m Open for Full-time, Part-time and Freelancing Oppurtunities
-              </motion.div>
-            )}
-          </div>  
-
-        <div className="text-5xl  text-left md:text-6xl text-zinc-800 md:w-4/5 md:text-center mx-auto mt-4">
-            <span className="text-3xl text-zinc-600">Hi I&apos;m, Nitin Jaswal </span>
-            <h1 className="font-bold py-4 bg-gradient-to-b text-transparent bg-clip-text from-zinc-600 to-zinc-800">
-               building products and experiences.
-            </h1>
-
-            <p className="text-lg pt-4">a <span className="font-medium">Fullstack Software Engineer</span> who&apos;s passionate about building products.</p>
+        <section className="min-h-screen min-w-screen flex items-center justify-center">
+          <div className="max-w-3xl mx-auto ">
+              <div className=" w-full p-4">
+                <h1 className={`${instrumentSerif.className} text-3xl mb-10 text-center`}>Work</h1>
+                <div className="border-s border-neutral-700 ms-3 space-y-10">
+                { 
+                  workExperiences.map((work , index) => (<WorkExperienceCard key={index} experience={work} /> ))
+                } 
+                </div>
+            </div>
           </div>
-        </div>
-
-        <div className="flex flex-col w-full md:w-fit md:flex-row gap-2 ">
-            <Button> Let&apos;s Connect</Button>
-            <Link href="https://drive.google.com/file/d/1h4xDoP-8Qb6V0ZclyVOeW04XJuraGYgj/view" 
-              className="from-stone-100 to-stone-200 justify-center shadow-inner w-full md:min-w-44 text-center z-3 m-[2px] bg-gradient-to-br text-zinc-500 relative font-medium  p-2 px-4 rounded-md h-fit flex place-items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-paperclip"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
-             Resume
-            </Link>
-        </div>
-
-      </div>
-      <section className="bg-white min-w-screen">
-        <div className="min-h-screen w-11/12 mx-auto mt-10 pt-20">
-          <div className="flex flex-col md:flex-row gap-4 md:gap-2 mt-20">
-            <div className="rounded-lg bg-stone-50 border border-stone-300 md:w-3/5 p-4">
-              <h1 className="text-zinc-700">Experience</h1>
+        </section>
 
 
-              <div className="border-s ms-3">
-                <div className="mt-4 ms-4 relative">
-                  <div className="bg-green-600 rounded-full -left-[22px] top-2 p-[6px] absolute"></div>
-                  <h2 className="text-xl font-medium text-stone-700">
-                    Full Stack Engineer
-                  </h2>
-                  <div className="">
-                    <h2 className="my-1 text-zinc-400 text-sm">
-                      September, 2024 - Present{" "}
-                    </h2>
-                    <ul className="text-stone-700 list-disc list-inside mt-2">
-                      <li>Develop an WLS to calculate and offset user emissions with seamless integration ready to
-                      integrate with various platforms.</li>
-                      <li>Enable real-time updates via configurable webhooks and callback mechanisms.</li>
-                      <li>Architect the gateway with rate-limiting, caching, and auto-scaling
-                      mechanisms to ensure uptime and performance.</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="mt-4 ms-4 relative">
-                  <div className="bg-zinc-400 rounded-full -left-[22px] top-2 p-[6px] absolute"></div>
-                  <h2 className="text-xl font-medium text-stone-700">
-                    Full Stack Engineer
-                  </h2>
-                  <div className="">
-                    <h2 className="my-1 text-zinc-400 text-sm">
-                      June, 2023 - June, 2024
-                    </h2>
-                    <ul className="text-stone-700 list-disc list-inside mt-2">
-                      <li>Built an <span className="highlight">Image Annonation</span> tool for creating Annonations of Tractors for <span className="highlight">New Holland</span>.</li>
-                      <li>Utilized NodeJs, MySQL and FabricJs as the core tech stack.</li>
-                      <li>Assisted in the building and integrated a real-time monitoring system using Node.Js and WebSockets.</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="mt-6 ms-4 relative">
-                  <div className="bg-zinc-400 rounded-full -left-[22px] top-2 p-[6px] absolute"></div>
-                  <h2 className="text-xl font-medium">
-                    Frontend Developer Intern
-                  </h2>
-                  <div className="">
-                    <h2 className="my-1 text-zinc-400 text-sm">
-                      January, 2023 - June 2023
-                    </h2>
-                    <ul className="text-zinc-700 list-disc list-inside mt-2">
-                      <li>Revamped UI and Improved UX for Various Client Web Apps </li>
-                      <li>Contributed to web apps  involving JavaScript, jQuery, CSS,HTML and MySQL.</li>
-                      <li>Implemented backend functionalities, gaining hands-on experience in Node.js
-                        along with Express.js.</li>
-                    </ul>
-                  </div>
-                </div>
+        <section className="max-w-xl mx-auto min-h-screen flex flex-col gap-10 items-center justify-center">
+          <h1 className={`text-3xl ${instrumentSerif.className}`}>Tech Cloud</h1>
+          <div className="grid grid-cols-4 gap-8">
+            {icons.map((item , index) => (
+              <div key={index} className="flex flex-col items-center gap-2 group">
+                <Image width={48} height={48} src={item.icon} alt={item.title} className="h-12 w-12 saturate-0 invert" />
+                <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity">{item.title}</span>
               </div>
-            </div>
-            <div className="md:w-2/5 flex flex-col gap-4 md:gap-2">
-              <div className="bg-stone-50 border h-full border-stone-300 rounded-lg p-4">
-                <h1 className="text-zinc-400">Skills</h1>
-                <div className="mt-2 flex gap-2 flex-wrap">
-                  {icons.map((item, index) => {
-                    return (
-                      <span
-                        key={index}
-                        className="p-2 px-4 bg-white border border-stone-200 rounded-full text-sm flex place-items-center gap-1 "
-                      >
-                        <Image
-                          src={`/${item.icon}`}
-                          height={20}
-                          width={20}
-                          className="rounded-md"
-                          alt="icon"
-                        ></Image>
-                        {item.title}
-                      </span>
-                    );
-                  })}
+            ))}
+
+          </div>
+        </section>
+
+        <section className="max-w-4xl mx-auto min-h-screen flex flex-col gap-10 items-center justify-center">
+            <div className="w-full h-full relative grid grid-cols-2 rounded-xl overflow-hidden">
+                <div className="bg-neutral-800 h-full p-6 flex flex-col items-center justify-center gap-4">
+                    <h2 className={`${instrumentSerif.className} font-bold text-4xl`}>Let&apos;s build your Next Big Idea</h2>
+                    <button className="w-full bg-white text-primary p-3 rounded-xl flex items-center mt-4 justify-center gap-2 ring ring-neutral-600">
+                    <Sparkle className="h-4 w-4" />Get in Touch</button>
+                    <div className="flex items-center gap-1">
+                      <div className="bg-green-500 h-2 w-2 rounded-xl "/>
+                      <span className="text-xs">Open for New Oppurtuinities</span>
+                    </div>
                 </div>
-              </div>
+                <Image height={500} src="/images/me.jpg" alt="landscape" className="h-[500px] w-full object-cover object-top" />
             </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="min-h-screen mt-10 py-10 relative">
-        <div className="dots absolute h-full w-full top-0"></div>
-        <div className="min-h-screen w-4/5 mx-auto mt-10">
-          <h2 className="text-5xl md:text-6xl font-medium text-center text-gray-700/70 ">
-            Wait there is something more
-          </h2>
-          <div className="mx-auto w-4/5 mt-20 md:mt-40 flex flex-col md:flex-row justify-center gap-10">
-            <div className="h-80 w-60 bg-white shadow rounded flex justify-center items-start pt-3 -rotate-1 hover:rotate-0 transition-transform">
-              <Image
-                src={"/images/nitin-2.jpg"}
-                className="rounded"
-                width={220}
-                height={300}
-                alt="nitin"
-              ></Image>
-            </div>
-            <div className="h-80 w-60 bg-white shadow rounded flex justify-center items-start pt-3 rotate-2 hover:rotate-0 transition-transform">
-              <Image
-                src={"/images/nitin-second.jpg"}
-                className="rounded"
-                width={220}
-                height={300}
-                alt="nitin"
-              ></Image>
-            </div>
-            <div className="h-80 w-60 bg-white shadow rounded flex justify-center items-start pt-3 -rotate-1 hover:rotate-0 transition-transform">
-              <Image
-                src={"/images/nitin-third.jpg"}
-                className="rounded"
-                width={220}
-                height={300}
-                alt="nitin"
-              ></Image>
-            </div>
-          </div>
-          <div className="mx-auto w-40 flex  place-items-center mt-20">
-            <Link href={'/about'} className="from-zinc-600 text-center z-1 bg-gradient-to-br text-zinc-200 relative font-medium shadow-md shadow-zinc-200 to-zinc-800  p-2 px-4 w-40 rounded-md hover:shadow-none transition border-2 border-zinc-700 ">
-              Read More
-            </Link >
-          </div>
-        </div>
-
-        <div className="bg-zinc-900 flex justify-between rounded-t-md p-4 mx-2 md:mx-10 translate-y-12 text-white">
-          <h2 className="text-2xl">Nitin Jaswal</h2>
-          <div className="flex gap-4 w-1/7 ">
-          <Link href="https://github.com/walkerthecreator" className="">
-          <span>
-              <svg
-            
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-twitter"
-              >
-                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-              </svg>
-            </span>
-          </Link>
-
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-github"
-              >
-                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                <path d="M9 18c-4.51 2-5-2-7-2" />
-              </svg>
-            </span>
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-mail"
-              >
-                <rect width="20" height="16" x="2" y="4" rx="2" />
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-              </svg>
-            </span>
-          </div>
-        </div>
+        </section>
+      </ScrollArea>
       </div>
     </>
   );
