@@ -14,14 +14,14 @@ interface Project{
 function Project({ title, photo, desc, live, tech, badge } : Project ) {
     return (
         <div className="mt-20 ">
-            <div className="w-full h-60 p-2 md:h-[40vh] group flex items-end justify-center bg-neutral-800 border border-neutral-700 rounded-md my-4 overflow-hidden ">
+            <div className="w-full h-60 p-2 md:h-[40vh] group flex items-center justify-center bg-neutral-800 border border-neutral-700 rounded-md my-4 overflow-hidden ">
                 <Image
                     src={photo}
                     width="800"
                     height="600"
                     alt="ratemypg-project-screenshot"
-                    className="rounded-t-lg translate-y-28 group-hover:translate-y-24 transition-transform"
-                ></Image>
+                    className="rounded-t-lg translate-y-10 md:translate-y-28 md:group-hover:translate-y-24 transition-transform"
+                />
             </div>
 
             <div>

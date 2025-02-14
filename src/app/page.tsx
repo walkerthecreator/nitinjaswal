@@ -97,12 +97,12 @@ const workExperiences = [
 export default function Home() {
   return (
     <>
-    <div className="min-w-screen min-h-screen">
+    <div className="min-w-screen min-h-screen px-2">
       <ScrollArea className="h-[calc(100vh-3.5rem)]">
         <section className="flex flex-col justify-evenly -translate-y-10 items-center min-h-screen w-11/12  md:w-3/5 mx-auto">
           <motion.h1 
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            initial={{ y: 10, opacity: 0, filter: "blur(10px)" }}
+            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="w-full max-w-lg text-lg"
           >
@@ -112,7 +112,7 @@ export default function Home() {
 
         <section className="min-h-screen min-w-screen flex items-center justify-center">
           <div className="max-w-3xl mx-auto ">
-              <div className=" w-full p-4">
+              <div className=" w-full py-4">
                 <h1 className={`${instrumentSerif.className} text-3xl mb-10 text-center`}>Work</h1>
                 <div className="border-s border-neutral-700 ms-3 space-y-10">
                 { 
@@ -137,9 +137,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="max-w-4xl mx-auto min-h-screen flex flex-col gap-10 items-center justify-center">
-            <div className="w-full h-full relative grid grid-cols-2 rounded-xl overflow-hidden">
-                <div className="bg-neutral-800 h-full p-6 flex flex-col items-center justify-center gap-4">
+
+        <section className="max-w-4xl mx-auto h-96  md:min-h-screen flex rounded-xl flex-col gap-10 items-center justify-center">
+            <div className="w-full h-full relative grid md:grid-cols-2 rounded-xl overflow-hidden">
+                <div className="bg-neutral-800 h-56 md:h-full p-6 flex flex-col items-center justify-center gap-4">
                     <h2 className={`${instrumentSerif.className} font-bold text-4xl`}>Let&apos;s build your Next Big Idea</h2>
                     <button className="w-full bg-white text-primary p-3 rounded-xl flex items-center mt-4 justify-center gap-2 ring ring-neutral-600">
                     <Sparkle className="h-4 w-4" />Get in Touch</button>
@@ -148,7 +149,7 @@ export default function Home() {
                       <span className="text-xs">Open for New Oppurtuinities</span>
                     </div>
                 </div>
-                <Image height={500} src="/images/me.jpg" alt="landscape" className="h-[500px] w-full object-cover object-top" />
+                <Image height={500} width={700} src="/images/me.jpg" alt="landscape" className="hidden md:inline h-[500px] w-full object-cover object-top" />
             </div>
         </section>
       </ScrollArea>
