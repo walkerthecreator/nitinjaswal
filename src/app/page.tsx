@@ -129,7 +129,7 @@ export default function Home() {
           <div className="grid grid-cols-4 gap-8">
             {icons.map((item , index) => (
               <div key={index} className="flex flex-col items-center gap-2 group">
-                <Image width={48} height={48} src={item.icon} alt={item.title} className="h-12 w-12 saturate-0 invert" />
+                <Image width={48} height={48} src={item.icon} alt={item.title} className="h-12 w-12 saturate-0 invert " />
                 <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity">{item.title}</span>
               </div>
             ))}
@@ -138,9 +138,9 @@ export default function Home() {
         </section>
 
 
-        <section className="max-w-4xl mx-auto h-96  md:min-h-screen flex rounded-xl flex-col gap-10 items-center justify-center">
-            <div className="w-full h-full relative grid md:grid-cols-2 rounded-xl overflow-hidden">
-                <div className="bg-neutral-800 h-56 md:h-full p-6 flex flex-col items-center justify-center gap-4">
+        <section className="max-w-4xl mx-auto h-96 md:min-h-screen flex rounded-xl flex-col gap-10 items-center justify-center">
+            <div className="w-full relative grid md:grid-cols-2 rounded-xl overflow-hidden">
+                <div className="bg-neutral-800  p-6 flex flex-col items-center justify-center gap-4">
                     <h2 className={`${instrumentSerif.className} font-bold text-4xl`}>Let&apos;s build your Next Big Idea</h2>
                     <button className="w-full bg-white text-primary p-3 rounded-xl flex items-center mt-4 justify-center gap-2 ring ring-neutral-600">
                     <Sparkle className="h-4 w-4" />Get in Touch</button>
