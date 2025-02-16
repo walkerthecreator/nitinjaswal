@@ -23,7 +23,7 @@ const page = () => {
                     </Link>
                   </div>
               </div>
-              <Image draggable="false" src="/images/nitin-2.jpg" alt="Nitin-photo" className="rounded-md" width={120} height={80}></Image>
+              <Image draggable="false" src="/images/potrait.png" alt="Nitin-photo" className="rounded-md" width={120} height={80}></Image>
           </div>
 
           <div className="mt-10">
