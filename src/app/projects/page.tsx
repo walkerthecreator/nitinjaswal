@@ -106,9 +106,9 @@ export function CallingPill({ setShow , setDrawer}: {setShow : React.Dispatch<Se
     alt="browser"
     className="-translate-x-1"
   />
-  <div className="-translate-x-2">
+  <div className="-translate-x-2 ">
     <b>Your New Website</b>
-    <p>mobile</p>
+    <p className="text-muted/50">mobile</p>
   </div>
   <div>
     <button onClick={()=>{ setShow(false) }} 

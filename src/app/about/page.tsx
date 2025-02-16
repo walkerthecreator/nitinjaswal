@@ -9,7 +9,7 @@ const page = () => {
 
   return (
     <div className="w-4/5 md:w-3/5/ lg:w-2/5 mx-auto mt-20">
-          <div className="flex gap-2 items-start">
+          <div className="flex gap-2 justify-between items-start">
               <div>
                 <h2 className={`text-3xl font-semibold ${instrumentSerif.className}`}>Nitin Jaswal</h2>
                   <p className="md:w-2/4 mt-2 text-muted/60">Full Stack Engineer Focused on Building Products with an attention to Detail.</p>
