@@ -3,13 +3,10 @@ import { AnimatePresence, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Button from "@/components/Button"
-import Link from "next/link";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { MapPin, Sparkle, X, Mail, Calendar, Twitter } from "lucide-react";
-import { Instrument_Serif } from "next/font/google";
-import WorkExperienceCard from "@/components/WorkExperienceCard";
+import { Sparkle, Mail, Calendar, Twitter } from "lucide-react";
 import { instrumentSerif } from "@/lib/font";
+import { cn } from "@/lib/utils";
 
 
 const icons = [
@@ -110,7 +107,7 @@ export default function Home() {
   return (
     <>
     <div className="min-w-screen min-h-screen px-2">
-      <ScrollArea className="h-[calc(100vh-3.5rem)]">
+      <ScrollArea className="h-[calc(100vh-3rem)]">
         <section className="flex flex-col justify-evenly -translate-y-10 items-center min-h-screen w-11/12  md:w-3/5 mx-auto">
           <motion.h1 
             initial={{ y: 10, opacity: 0, filter: "blur(10px)" }}
@@ -165,73 +162,73 @@ export default function Home() {
 
         <section className="max-w-4xl mx-auto h-96 md:min-h-screen flex rounded-xl flex-col gap-10 items-center justify-center">
             <div className="w-full relative grid md:grid-cols-2 rounded-xl overflow-hidden">
-                <div className="bg-neutral-800  p-6 flex flex-col items-center justify-center gap-4">
-                    <h2 className={`${instrumentSerif.className} font-bold text-4xl`}>Let&apos;s build your Next Big Idea</h2>
+            <div 
+            className={cn("bg-neutral-800 p-6 flex flex-col items-center justify-center gap-4" , isContactOpen && "max-sm:h-[400px] max-sm:pb-40")}>
+  <h2 className={`${instrumentSerif.className} font-bold text-4xl`}>Let&apos;s build your Next Big Idea</h2>
 
+  <div className="relative w-full">
+    <motion.button 
+      onClick={() => setIsContactOpen(!isContactOpen)}
+      className="w-full bg-white text-primary p-3 rounded-xl flex items-center mt-4 justify-center gap-2 ring ring-neutral-600">
+      <Sparkle className="h-4 w-4" />Get in Touch
+    </motion.button>
 
-                  <div className="relative w-full">
-                    <AnimatePresence>
+    {isContactOpen && (
+      <div className="mt-6 relative">
+        <AnimatePresence>
+          <motion.div 
+            className="flex flex-col justify-center gap-2 w-full absolute left-0 right-0"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}>
+            
+            <motion.a 
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 0.2, delay: 0 }}
+              href="https://twitter.com/nitinjaswal26" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-20">
+              <Twitter className="h-5 w-5" />
+              twitter / X
+            </motion.a>
+            
+            <motion.a 
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
+              href="mailto:nitinjaswal2616@gmail.com" 
+              className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-10">
+              <Mail className="h-5 w-5" />
+              nitinjaswal2616
+            </motion.a>
+            
+            <motion.a 
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 0.2, delay: 0.2 }}
+              href="https://cal.com/nitinjaswal/30min" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-0">
+              <Calendar className="h-5 w-5" />
+              schedule a call
+            </motion.a>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    )}
+  </div>
 
-                    </AnimatePresence>
-                    
-                    <motion.button 
-                      onClick={() => setIsContactOpen(!isContactOpen)}
-                      className="w-full bg-white text-primary p-3 rounded-xl flex items-center mt-4 justify-center gap-2 ring ring-neutral-600">
-                      <Sparkle className="h-4 w-4" />Get in Touch
-                    </motion.button>
-
-                    {isContactOpen && (
-                        <motion.div 
-                          initial={{ opacity: 0,  }}
-                          animate={{ opacity: 1,  }}
-                          exit={{ opacity: 0, y: 10 }}
-                          className="flex justify-center gap-3 w-full mt-6">
-                          <motion.a 
-                            href="https://twitter.com/nitinjaswal26" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            initial={{ x: 0 }}
-                            animate={{ x: 1 }}
-                            transition={{ delay: 0.1 }}
-                            className="bg-neutral-700 hover:bg-neutral-600 p-3 rounded-full flex items-center justify-center">
-                            <Twitter className="h-5 w-5" />
-                          </motion.a>
-                          <motion.a 
-                            href="mailto:nitinjaswal2616@gmail.com" 
-                            initial={{ x: 0 }}
-                            animate={{ x: 1 }}
-                            transition={{ delay: 0.1 }}
-                            className="bg-neutral-700 hover:bg-neutral-600 p-3 rounded-full flex items-center justify-center">
-                            <Mail className="h-5 w-5" />
-                          </motion.a>
-                          <motion.a 
-                            href="https://calendly.com/nitinjaswal/30min" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            initial={{ x: 0 }}
-                              animate={{ x: 1 }}
-                            transition={{ delay: 0.1 }}
-                            className="bg-neutral-700 hover:bg-neutral-600 p-3 rounded-full flex items-center justify-center">
-                            <Calendar className="h-5 w-5" />
-                          </motion.a>
-                          <motion.button 
-                            onClick={() => setIsContactOpen(false)}
-                            initial={{ x: 0 }}
-                            animate={{ x: 1 }}
-                            transition={{ delay: 0.1 }}
-                            className="bg-neutral-700 hover:bg-neutral-600 p-3 rounded-full flex items-center justify-center">
-                            <X className="h-5 w-5" />
-                          </motion.button>
-                        </motion.div>
-                      )}
-                  </div>
-
-
-                    <div className="flex items-center gap-1">
-                      <div className="bg-green-500 h-2 w-2 rounded-xl "/>
-                      <span className="text-xs">Open for New Oppurtuinities</span>
-                    </div>
-                </div>
+  <motion.div className="flex items-center gap-1">
+    <div className="bg-green-500 h-2 w-2 rounded-xl"/>
+    <span className="text-xs">Open for New Oppurtuinities</span>
+  </motion.div>
+            </div>
                 <Image height={500} width={700} src="/images/me.jpg" alt="landscape" className="hidden md:inline h-[500px] w-full object-cover object-top" />
             </div>
         </section>

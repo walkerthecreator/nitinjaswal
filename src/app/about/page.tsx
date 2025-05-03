@@ -8,7 +8,7 @@ const page = () => {
 
 
   return (
-    <div className="w-4/5 md:w-3/5/ lg:w-2/5 mx-auto mt-20">
+    <div className="w-4/5 md:w-3/5/ lg:w-2/5 mx-auto mt-20 pb-10">
           <div className="flex gap-2 justify-between items-start">
               <div>
                 <h2 className={`text-3xl font-semibold ${instrumentSerif.className}`}>Nitin Jaswal</h2>
@@ -41,9 +41,6 @@ const page = () => {
             bg-gradient-to-br from-neutral-800 to-neutral-900 border border-neutral-700
             font-medium p-2 rounded-md">Get in Touch</button> 
           </Link>
-
-
-
     </div>
   );
 };

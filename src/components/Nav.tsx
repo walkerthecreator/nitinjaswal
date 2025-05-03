@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Nav() {
 
   return (
-    <nav className="z-10 w-full fixed shadow-lg bottom-0 border-t bg-neutral-800 text-white border-neutral-600 p-2 mx-auto flex justify-center gap-3 ">
+    <nav className="z-10 w-full fixed shadow-lg bottom-0 border-t bg-neutral-800 text-white border-neutral-600 p-2 px-5 mx-auto flex justify-center gap-3 ">
   
       <div className="flex justify-between w-full max-w-2xl items-center">
       <div className="flex items-center gap-2">
