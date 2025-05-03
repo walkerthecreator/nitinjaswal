@@ -65,8 +65,14 @@ const icons = [
 
 const workExperiences = [
   {
+    title : "Full Stack Engineer", 
+    date : "March, 2025 - Present",
+    company : "AI Startup"
+  },
+  {
     title: "Full Stack Engineer",
-    date: "September, 2024 - Present",
+    date: "Sep, 2024 - March, 2025",
+    company : "Blockchain Startup",
     isPresent: true,
     points: [
       "Developing a WLS to Offset carbon emissions with seamless integration.",
@@ -77,6 +83,7 @@ const workExperiences = [
   {
     title: "Full Stack Engineer",
     date: "June, 2023 - June, 2024",
+    company : "Service Based",
     points: [
       'Built an <span class="highlight">Image Annonation</span> tool for creating Annonations of Tractors for <span class="highlight">New Holland</span>.',
       "Utilized NodeJs, MySQL and FabricJs as the core tech stack.",
@@ -85,12 +92,16 @@ const workExperiences = [
   },
   {
     title: "Frontend Developer Intern",
-    date: "January, 2023 - June 2023",
+    date: "Jan, 2023 - June, 2023",
     points: [
       "Revamped UI and Improved UX for Various Client Web Apps",
       "Contributed to web apps involving JavaScript, jQuery, CSS,HTML and MySQL.",
       "Implemented backend functionalities, gaining hands-on experience in Node.js along with Express.js."
     ]
+  },
+  {
+    title : "Freelance Frontend Developer",
+    date : "June, 2022 - Nov, 2023"
   }
 ];
 
@@ -111,15 +122,28 @@ export default function Home() {
         </section>
 
         <section className="min-h-screen min-w-screen flex items-center justify-center">
-          <div className="max-w-3xl mx-auto ">
-              <div className=" w-full py-4">
-                <h1 className={`${instrumentSerif.className} text-3xl mb-10 text-center`}>Work</h1>
-                <div className="border-s border-neutral-700 ms-3 space-y-10">
-                { 
-                  workExperiences.map((work , index) => (<WorkExperienceCard key={index} experience={work} /> ))
-                } 
+          <div className="max-w-3xl w-full mx-auto">
+              <div className="w-full py-4">
+                <h1 className={`${instrumentSerif.className} text-3xl mb-20 text-center`}>Timeline</h1>
+                <div className="space-y-8">
+                  {
+                    workExperiences.map((work , index) => (
+                      <div className="flex justify-between items-center gap-3 w-[90%]" key={index}>
+                        <div className="text-neutral-400">{work.date}</div>
+                        <div className="border border-dashed border-neutral-700 flex-1" />
+                        <div className="flex items-center gap-2">
+                          {work.title}
+                          {
+                            work.company && (
+                              <span className="text-neutral-400">({work.company})</span>
+                            )
+                          }
+                          </div>
+                      </div>
+                    ))
+                  }
                 </div>
-            </div>
+              </div>
           </div>
         </section>
 
