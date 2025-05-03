@@ -1,12 +1,12 @@
 "use client";
-import { useScroll } from "framer-motion";
+import { AnimatePresence, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "@/components/Button"
 import Link from "next/link";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { MapPin, Sparkle } from "lucide-react";
+import { MapPin, Sparkle, X, Mail, Calendar, Twitter } from "lucide-react";
 import { Instrument_Serif } from "next/font/google";
 import WorkExperienceCard from "@/components/WorkExperienceCard";
 import { instrumentSerif } from "@/lib/font";
@@ -65,7 +65,7 @@ const icons = [
 
 const workExperiences = [
   {
-    title : "Full Stack Engineer", 
+    title : "Freelance Fullstack Developer", 
     date : "March, 2025 - Present",
     company : "AI Startup"
   },
@@ -106,6 +106,7 @@ const workExperiences = [
 ];
 
 export default function Home() {
+  const [isContactOpen, setIsContactOpen] = useState(false);
   return (
     <>
     <div className="min-w-screen min-h-screen px-2">
@@ -166,8 +167,66 @@ export default function Home() {
             <div className="w-full relative grid md:grid-cols-2 rounded-xl overflow-hidden">
                 <div className="bg-neutral-800  p-6 flex flex-col items-center justify-center gap-4">
                     <h2 className={`${instrumentSerif.className} font-bold text-4xl`}>Let&apos;s build your Next Big Idea</h2>
-                    <button className="w-full bg-white text-primary p-3 rounded-xl flex items-center mt-4 justify-center gap-2 ring ring-neutral-600">
-                    <Sparkle className="h-4 w-4" />Get in Touch</button>
+
+
+                  <div className="relative w-full">
+                    <AnimatePresence>
+
+                    </AnimatePresence>
+                    
+                    <motion.button 
+                      onClick={() => setIsContactOpen(!isContactOpen)}
+                      className="w-full bg-white text-primary p-3 rounded-xl flex items-center mt-4 justify-center gap-2 ring ring-neutral-600">
+                      <Sparkle className="h-4 w-4" />Get in Touch
+                    </motion.button>
+
+                    {isContactOpen && (
+                        <motion.div 
+                          initial={{ opacity: 0,  }}
+                          animate={{ opacity: 1,  }}
+                          exit={{ opacity: 0, y: 10 }}
+                          className="flex justify-center gap-3 w-full mt-6">
+                          <motion.a 
+                            href="https://twitter.com/nitinjaswal26" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            initial={{ x: 0 }}
+                            animate={{ x: 1 }}
+                            transition={{ delay: 0.1 }}
+                            className="bg-neutral-700 hover:bg-neutral-600 p-3 rounded-full flex items-center justify-center">
+                            <Twitter className="h-5 w-5" />
+                          </motion.a>
+                          <motion.a 
+                            href="mailto:nitinjaswal2616@gmail.com" 
+                            initial={{ x: 0 }}
+                            animate={{ x: 1 }}
+                            transition={{ delay: 0.1 }}
+                            className="bg-neutral-700 hover:bg-neutral-600 p-3 rounded-full flex items-center justify-center">
+                            <Mail className="h-5 w-5" />
+                          </motion.a>
+                          <motion.a 
+                            href="https://calendly.com/nitinjaswal/30min" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            initial={{ x: 0 }}
+                              animate={{ x: 1 }}
+                            transition={{ delay: 0.1 }}
+                            className="bg-neutral-700 hover:bg-neutral-600 p-3 rounded-full flex items-center justify-center">
+                            <Calendar className="h-5 w-5" />
+                          </motion.a>
+                          <motion.button 
+                            onClick={() => setIsContactOpen(false)}
+                            initial={{ x: 0 }}
+                            animate={{ x: 1 }}
+                            transition={{ delay: 0.1 }}
+                            className="bg-neutral-700 hover:bg-neutral-600 p-3 rounded-full flex items-center justify-center">
+                            <X className="h-5 w-5" />
+                          </motion.button>
+                        </motion.div>
+                      )}
+                  </div>
+
+
                     <div className="flex items-center gap-1">
                       <div className="bg-green-500 h-2 w-2 rounded-xl "/>
                       <span className="text-xs">Open for New Oppurtuinities</span>
