@@ -117,20 +117,20 @@ export default function Home() {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="w-full max-w-lg text-lg"
           >
-            Hi, I&apos;m Nitin Jaswal, a Fullstack Engineer who&apos;s passionate about building products and experiences
+            Hi, I&apos;m Nitin Jaswal, a Software / Fullstack Engineer who&apos;s passionate about building products and experiences
           </motion.h1>
         </section>
 
         <section className="min-h-screen min-w-screen flex items-center justify-center">
-          <div className="max-w-3xl w-full mx-auto">
+          <div className="max-w-xl md:max-w-3xl w-full mx-auto">
               <div className="w-full py-4">
                 <h1 className={`${instrumentSerif.className} text-3xl mb-20 text-center`}>Timeline</h1>
-                <div className="space-y-8">
+                <div className="space-y-8 mx-4">
                   {
                     workExperiences.map((work , index) => (
-                      <div className="flex justify-between items-center gap-3 w-[90%]" key={index}>
+                      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-1 md:gap-3" key={index}>
                         <div className="text-neutral-400">{work.date}</div>
-                        <div className="border border-dashed border-neutral-700 flex-1" />
+                        <div className="border border-dashed border-neutral-700 flex-1 hidden md:block" />
                         <div className="flex items-center gap-2">
                           {work.title}
                           {
