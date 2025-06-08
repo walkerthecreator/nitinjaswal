@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sparkle, Mail, Calendar, Twitter } from "lucide-react";
 import { instrumentSerif } from "@/lib/font";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils";``
 
 
 const icons = [
@@ -64,7 +64,6 @@ const workExperiences = [
   {
     title : "Freelance Fullstack Developer", 
     date : "March, 2025 - Present",
-    company : "AI Startup"
   },
   {
     title: "Full Stack Engineer",
@@ -108,12 +107,35 @@ export default function Home() {
     <>
     <div className="min-w-screen min-h-screen px-2">
       <ScrollArea className="h-[calc(100vh-3rem)]">
+
+
+        <motion.img 
+          src="/images/space.png" 
+          alt="landscape" 
+          className="w-20 h-20 rounded-full object-cover absolute top-10 left-0"
+          initial={{ x: 1200, scale: 1 }}
+          animate={{ 
+            x: 1000,
+            scale: 0.5,
+            rotate: [0, 360],
+            transition: {
+              x: { ease: "easeOut", duration: 24 },
+              scale: { ease: "easeOut", duration: 24 },
+              rotate: {
+                duration: 10,
+                ease: "linear",
+                repeat: Infinity
+              }
+            }
+          }}
+        />
+
         <section className="flex flex-col justify-evenly -translate-y-10 items-center min-h-screen w-11/12  md:w-3/5 mx-auto">
           <motion.h1 
             initial={{ y: 10, opacity: 0, filter: "blur(10px)" }}
             animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="w-full max-w-lg text-lg"
+            className="w-full max-w-lg"
           >
             Hi, I&apos;m Nitin Jaswal, a Software / Fullstack Engineer who&apos;s passionate about building products and experiences
           </motion.h1>
