@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { GeistMono } from 'geist/font/mono';
+import { Inter } from 'next/font/google';
 import "./globals.css";
 import Nav from "@/components/Nav";
 import { Analytics } from "@vercel/analytics/react";
 
-// const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Nitin Jaswal",
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={ GeistMono.className + " bg-black text-white text-sm"}>
+      <body className={ inter.className + " bg-black text-white text-sm"}>
         <Nav></Nav>
         {children}
         <Analytics/>

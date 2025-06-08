@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sparkle, Mail, Calendar, Twitter } from "lucide-react";
 import { instrumentSerif } from "@/lib/font";
-import { cn } from "@/lib/utils";``
-
+import { cn } from "@/lib/utils";
+``;
 
 const icons = [
   {
@@ -27,9 +27,9 @@ const icons = [
     title: "ReactJs",
   },
   {
-    icon : "redux.svg" ,
-    title : "Redux"
-  } ,
+    icon: "redux.svg",
+    title: "Redux",
+  },
   {
     icon: "tailwindcss.svg",
     title: "TailwindCSS",
@@ -55,36 +55,36 @@ const icons = [
     title: "PostgreSQL",
   },
   {
-    icon : "git.svg" ,
-    title : 'Git'
-  }
+    icon: "git.svg",
+    title: "Git",
+  },
 ];
 
 const workExperiences = [
   {
-    title : "Freelance Fullstack Developer", 
-    date : "March, 2025 - Present",
+    title: "Freelance Fullstack Developer",
+    date: "March, 2025 - Present",
   },
   {
     title: "Full Stack Engineer",
     date: "Sep, 2024 - March, 2025",
-    company : "Blockchain Startup",
+    company: "Blockchain Startup",
     isPresent: true,
     points: [
       "Developing a WLS to Offset carbon emissions with seamless integration.",
       "Enabled real-time updates via configurable webhooks and callback mechanisms.",
-      "Architect solution with rate-limiting, caching, and auto-scaling mechanisms."
-    ]
+      "Architect solution with rate-limiting, caching, and auto-scaling mechanisms.",
+    ],
   },
   {
     title: "Full Stack Engineer",
     date: "June, 2023 - June, 2024",
-    company : "Service Based",
+    company: "Service Based",
     points: [
       'Built an <span class="highlight">Image Annonation</span> tool for creating Annonations of Tractors for <span class="highlight">New Holland</span>.',
       "Utilized NodeJs, MySQL and FabricJs as the core tech stack.",
-      "Assisted in the building and integrated a real-time monitoring system using Node.Js and WebSockets."
-    ]
+      "Assisted in the building and integrated a real-time monitoring system using Node.Js and WebSockets.",
+    ],
   },
   {
     title: "Frontend Developer Intern",
@@ -92,169 +92,246 @@ const workExperiences = [
     points: [
       "Revamped UI and Improved UX for Various Client Web Apps",
       "Contributed to web apps involving JavaScript, jQuery, CSS,HTML and MySQL.",
-      "Implemented backend functionalities, gaining hands-on experience in Node.js along with Express.js."
-    ]
+      "Implemented backend functionalities, gaining hands-on experience in Node.js along with Express.js.",
+    ],
   },
   {
-    title : "Freelance Frontend Developer",
-    date : "June, 2022 - Nov, 2023"
-  }
+    title: "Freelance Frontend Developer",
+    date: "June, 2022 - Nov, 2023",
+  },
 ];
 
 export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   return (
     <>
-    <div className="min-w-screen min-h-screen px-2">
-      <ScrollArea className="h-[calc(100vh-3rem)]">
+      <div className="min-w-screen min-h-screen px-2">
+        <ScrollArea className="h-[calc(100vh-3rem)]">
+          <motion.img
+            src="/images/space.png"
+            alt="landscape"
+            className="w-20 h-20 rounded-full object-cover absolute top-10 left-0"
+            initial={{ x: 1200, scale: 1 }}
+            animate={{
+              x: 1000,
+              scale: 0.5,
+              rotate: [0, 360],
+              transition: {
+                x: { ease: "easeOut", duration: 24 },
+                scale: { ease: "easeOut", duration: 24 },
+                rotate: {
+                  duration: 10,
+                  ease: "linear",
+                  repeat: Infinity,
+                },
+              },
+            }}
+          />
 
+          <section className="flex flex-col max-w-2xl  items-start justify-start pt-40 gap-4 min-h-screen w-11/12  md:w-3/5 mx-auto">
+            <motion.h1
+              initial={{ y: 10, opacity: 0, filter: "blur(10px)" }}
+              animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className={`text-4xl text-left font-semibold ${instrumentSerif.className}`}
+            >
+              Nitin Jaswal
+            </motion.h1>
+            <motion.h1
+              initial={{ y: 10, opacity: 0, filter: "blur(10px)" }}
+              animate={{ y: 0, opacity: 0.9, filter: "blur(0px)" }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="w-full text-start leading-relaxed "
+            >
+              a Software / Fullstack Engineer passionate about crafting
+              meaningful products and user experiences. Lately, I&apos;ve been
+              diving deeper into app development and exploring the exciting
+              world of Generative AI. Always learning, always building — trying
+              to live up to the word <span className="italic">engineer</span>.
+            </motion.h1>
 
-        <motion.img 
-          src="/images/space.png" 
-          alt="landscape" 
-          className="w-20 h-20 rounded-full object-cover absolute top-10 left-0"
-          initial={{ x: 1200, scale: 1 }}
-          animate={{ 
-            x: 1000,
-            scale: 0.5,
-            rotate: [0, 360],
-            transition: {
-              x: { ease: "easeOut", duration: 24 },
-              scale: { ease: "easeOut", duration: 24 },
-              rotate: {
-                duration: 10,
-                ease: "linear",
-                repeat: Infinity
-              }
-            }
-          }}
-        />
+            <div className="flex items-center justify-center gap-4 mt-10">
+              <motion.img
+                initial={{ y: 30, opacity: 0, filter: "blur(10px)" }}
+                animate={{ y: 0, opacity: 1, filter: "blur(0px) saturate(0) contrast(1.2) brightness(0.8)" }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                src="/images/nitin-0.jpeg"
+                alt="Nitin Jaswal"
+                width={200}
+                height={200}
+                className="h-52 w-56 rounded-md object-cover ring ring-stone-800 border border-stone-700 saturate-0 "
+              />
+              <motion.img
+                initial={{ y: 30, opacity: 0, filter: "blur(10px)" }}
+                animate={{ y: 0, opacity: 1, filter: "blur(0px) saturate(0)" }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                src="/images/nitin-second.jpg"
+                alt="Nitin Jaswal"
+                width={200}
+                height={200}
+                className="h-52 w-56 rounded-md  object-cover border ring ring-stone-800 border-stone-600 saturate-0 "
+              />
+              <motion.img
+                initial={{ y: 30, opacity: 0, filter: "blur(10px)" }}
+                animate={{ y: 0, opacity: 1, filter: "blur(0px) saturate(0)" }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                src="/images/nitin-third.jpg"
+                alt="Nitin Jaswal"
+                width={200}
+                height={200}
+                className="h-52 w-56  rounded-md object-cover border ring ring-stone-800 border-stone-600 saturate-0 "
+              />
+            </div>
+          </section>
 
-        <section className="flex flex-col justify-evenly -translate-y-10 items-center min-h-screen w-11/12  md:w-3/5 mx-auto">
-          <motion.h1 
-            initial={{ y: 10, opacity: 0, filter: "blur(10px)" }}
-            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="w-full max-w-lg"
-          >
-            Hi, I&apos;m Nitin Jaswal, a Software / Fullstack Engineer who&apos;s passionate about building products and experiences
-          </motion.h1>
-        </section>
-
-        <section className="min-h-screen min-w-screen flex items-center justify-center">
-          <div className="max-w-xl md:max-w-3xl w-full mx-auto">
+          <section className="min-w-screen flex items-center justify-center min-h-screen">
+            <div className="max-w-xl md:max-w-3xl w-full mx-auto">
               <div className="w-full py-4">
-                <h1 className={`${instrumentSerif.className} text-3xl mb-20 text-center`}>Timeline</h1>
+                <h1
+                  className={`${instrumentSerif.className} text-3xl mb-20 text-center`}
+                >
+                  Timeline
+                </h1>
                 <div className="space-y-8 mx-4">
-                  {
-                    workExperiences.map((work , index) => (
-                      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-1 md:gap-3" key={index}>
-                        <div className="text-neutral-400">{work.date}</div>
-                        <div className="border border-dashed border-neutral-700 flex-1 hidden md:block" />
-                        <div className="flex items-center gap-2">
-                          {work.title}
-                          {
-                            work.company && (
-                              <span className="text-neutral-400">({work.company})</span>
-                            )
-                          }
-                          </div>
+                  {workExperiences.map((work, index) => (
+                    <div
+                      className="flex flex-col md:flex-row justify-between items-start md:items-center gap-1 md:gap-3"
+                      key={index}
+                    >
+                      <div className="text-neutral-400">{work.date}</div>
+                      <div className="border border-dashed border-neutral-700 flex-1 hidden md:block" />
+                      <div className="flex items-center gap-2">
+                        {work.title}
+                        {work.company && (
+                          <span className="text-neutral-400">
+                            ({work.company})
+                          </span>
+                        )}
                       </div>
-                    ))
-                  }
+                    </div>
+                  ))}
                 </div>
               </div>
-          </div>
-        </section>
+            </div>
+          </section>
 
+          <section className="max-w-xl mx-auto flex flex-col gap-10 items-center h-screen justify-center">
+            <h1 className={`text-3xl ${instrumentSerif.className}`}>
+              Tech Cloud
+            </h1>
+            <div className="grid grid-cols-4 gap-8">
+              {icons.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center gap-2 group"
+                >
+                  <Image
+                    width={48}
+                    height={48}
+                    src={item.icon}
+                    alt={item.title}
+                    className="h-12 w-12 saturate-0 invert "
+                  />
+                  <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+                    {item.title}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
 
-        <section className="max-w-xl mx-auto min-h-screen flex flex-col gap-10 items-center justify-center">
-          <h1 className={`text-3xl ${instrumentSerif.className}`}>Tech Cloud</h1>
-          <div className="grid grid-cols-4 gap-8">
-            {icons.map((item , index) => (
-              <div key={index} className="flex flex-col items-center gap-2 group">
-                <Image width={48} height={48} src={item.icon} alt={item.title} className="h-12 w-12 saturate-0 invert " />
-                <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity">{item.title}</span>
-              </div>
-            ))}
-
-          </div>
-        </section>
-
-
-        <section className="max-w-4xl mx-auto h-96 md:min-h-screen flex rounded-xl flex-col gap-10 items-center justify-center">
+          <section className="max-w-4xl mx-auto h-96 md:min-h-screen flex rounded-xl flex-col gap-10 items-center justify-center">
             <div className="w-full relative grid md:grid-cols-2 rounded-xl overflow-hidden">
-            <div 
-            className={cn("bg-neutral-800 p-6 flex flex-col items-center justify-center gap-4" , isContactOpen && "max-sm:h-[400px] max-sm:pb-40")}>
-  <h2 className={`${instrumentSerif.className} font-bold text-4xl`}>Let&apos;s build your Next Big Idea</h2>
+              <div
+                className={cn(
+                  "bg-neutral-800 p-6 flex flex-col items-center justify-center gap-4",
+                  isContactOpen && "max-sm:h-[400px] max-sm:pb-40"
+                )}
+              >
+                <h2
+                  className={`${instrumentSerif.className} font-bold text-4xl`}
+                >
+                  Let&apos;s build your Next Big Idea
+                </h2>
 
-  <div className="relative w-full">
-    <motion.button 
-      onClick={() => setIsContactOpen(!isContactOpen)}
-      className="w-full bg-white text-primary p-3 rounded-xl flex items-center mt-4 justify-center gap-2 ring ring-neutral-600">
-      <Sparkle className="h-4 w-4" />Get in Touch
-    </motion.button>
+                <div className="relative w-full">
+                  <motion.button
+                    onClick={() => setIsContactOpen(!isContactOpen)}
+                    className="w-full bg-white text-primary p-3 rounded-xl flex items-center mt-4 justify-center gap-2 ring ring-neutral-600"
+                  >
+                    <Sparkle className="h-4 w-4" />
+                    Get in Touch
+                  </motion.button>
 
-    {isContactOpen && (
-      <div className="mt-6 relative">
-        <AnimatePresence>
-          <motion.div 
-            className="flex flex-col justify-center gap-2 w-full absolute left-0 right-0"
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}>
-            
-            <motion.a 
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -10, opacity: 0 }}
-              transition={{ duration: 0.2, delay: 0 }}
-              href="https://twitter.com/nitinjaswal26" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-20">
-              <Twitter className="h-5 w-5" />
-              twitter / X
-            </motion.a>
-            
-            <motion.a 
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -10, opacity: 0 }}
-              transition={{ duration: 0.2, delay: 0.1 }}
-              href="mailto:nitinjaswal2616@gmail.com" 
-              className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-10">
-              <Mail className="h-5 w-5" />
-              nitinjaswal2616
-            </motion.a>
-            
-            <motion.a 
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -10, opacity: 0 }}
-              transition={{ duration: 0.2, delay: 0.2 }}
-              href="https://cal.com/nitinjaswal/30min" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-0">
-              <Calendar className="h-5 w-5" />
-              schedule a call
-            </motion.a>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    )}
-  </div>
+                  {isContactOpen && (
+                    <div className="mt-6 relative">
+                      <AnimatePresence>
+                        <motion.div
+                          className="flex flex-col justify-center gap-2 w-full absolute left-0 right-0"
+                          initial={{ opacity: 1 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                        >
+                          <motion.a
+                            initial={{ y: -20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: -10, opacity: 0 }}
+                            transition={{ duration: 0.2, delay: 0 }}
+                            href="https://twitter.com/nitinjaswal26"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-20"
+                          >
+                            <Twitter className="h-5 w-5" />
+                            twitter / X
+                          </motion.a>
 
-  <motion.div className="flex items-center gap-1">
-    <div className="bg-green-500 h-2 w-2 rounded-xl"/>
-    <span className="text-xs">Open for New Oppurtuinities</span>
-  </motion.div>
+                          <motion.a
+                            initial={{ y: -20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: -10, opacity: 0 }}
+                            transition={{ duration: 0.2, delay: 0.1 }}
+                            href="mailto:nitinjaswal2616@gmail.com"
+                            className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-10"
+                          >
+                            <Mail className="h-5 w-5" />
+                            nitinjaswal2616
+                          </motion.a>
+
+                          <motion.a
+                            initial={{ y: -20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: -10, opacity: 0 }}
+                            transition={{ duration: 0.2, delay: 0.2 }}
+                            href="https://cal.com/nitinjaswal/30min"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-0"
+                          >
+                            <Calendar className="h-5 w-5" />
+                            schedule a call
+                          </motion.a>
+                        </motion.div>
+                      </AnimatePresence>
+                    </div>
+                  )}
+                </div>
+
+                <motion.div className="flex items-center gap-1">
+                  <div className="bg-green-500 h-2 w-2 rounded-xl" />
+                  <span className="text-xs">Open for New Oppurtuinities</span>
+                </motion.div>
+              </div>
+              <Image
+                height={500}
+                width={700}
+                src="/images/me.jpg"
+                alt="landscape"
+                className="hidden md:inline h-[500px] w-full object-cover object-top"
+              />
             </div>
-                <Image height={500} width={700} src="/images/me.jpg" alt="landscape" className="hidden md:inline h-[500px] w-full object-cover object-top" />
-            </div>
-        </section>
-      </ScrollArea>
+          </section>
+        </ScrollArea>
       </div>
     </>
   );
