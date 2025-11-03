@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={ inter.className + " bg-black text-white text-sm"}>
-        <Nav></Nav>
+        <Nav />
         {children}
         <Analytics/>
         </body>

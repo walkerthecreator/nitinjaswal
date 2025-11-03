@@ -12,7 +12,7 @@ export default function CraftsPage() {
   };
   const cellWidth = position[currentIndex];
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center h-full ">
       <div className="my-10 relative flex items-center justify-center gap-8 w-24">
         <motion.div
           className="absolute p-2 left-0 z-[-10] bg-green-600 rounded-full"

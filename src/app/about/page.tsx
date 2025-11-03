@@ -5,8 +5,6 @@ import { instrumentSerif } from "@/lib/font";
 import { Github, Twitter } from "lucide-react";
 
 const page = () => {
-
-
   return (
     <div className="w-4/5 md:w-3/5/ lg:w-2/5 mx-auto mt-20 pb-10">
           <div className="flex gap-2 justify-between items-start">

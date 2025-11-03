@@ -13,6 +13,7 @@ export default function Nav() {
       <div className="flex items-center gap-4 text-sm">
     <Link href="/projects" className="hover:-translate-y-1 transition-transform">Projects</Link>
     <Link href="/about" className="hover:-translate-y-1 transition-transform">About</Link>
+    <Link href="/crafts" className="hover:-translate-y-1 transition-transform">Crafts</Link>
       </div>
       </div>
     </nav>

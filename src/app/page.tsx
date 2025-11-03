@@ -150,7 +150,7 @@ export default function Home() {
               to live up to the word <span className="italic">engineer</span>.
             </motion.h1>
 
-            <div className="flex items-center justify-center gap-4 mt-10">
+            <div className="flex items-center justify-center gap-4 mt-10 has-[img:hover]:saturate-0">
               <motion.img
                 initial={{ y: 30, opacity: 0, filter: "blur(10px)" }}
                 animate={{ y: 0, opacity: 1, filter: "blur(0px) saturate(0) contrast(1.2) brightness(0.8)" }}
@@ -159,7 +159,7 @@ export default function Home() {
                 alt="Nitin Jaswal"
                 width={200}
                 height={200}
-                className="h-52 w-56 rounded-md object-cover ring ring-stone-800 border border-stone-700 saturate-0 "
+                className="h-52 w-56 rounded-md object-cover ring ring-stone-800 border border-stone-700 hover:saturate-100 "
               />
               <motion.img
                 initial={{ y: 30, opacity: 0, filter: "blur(10px)" }}
@@ -169,7 +169,7 @@ export default function Home() {
                 alt="Nitin Jaswal"
                 width={200}
                 height={200}
-                className="h-52 w-56 rounded-md  object-cover border ring ring-stone-800 border-stone-600 saturate-0 "
+                className="h-52 w-56 rounded-md  object-cover border ring ring-stone-800 border-stone-600 hover:saturate-100 "
               />
               <motion.img
                 initial={{ y: 30, opacity: 0, filter: "blur(10px)" }}
@@ -179,7 +179,7 @@ export default function Home() {
                 alt="Nitin Jaswal"
                 width={200}
                 height={200}
-                className="h-52 w-56  rounded-md object-cover border ring ring-stone-800 border-stone-600 saturate-0 "
+                className="h-52 w-56  rounded-md object-cover border ring ring-stone-800 border-stone-600 hover:saturate-100 "
               />
             </div>
           </section>
@@ -192,21 +192,16 @@ export default function Home() {
                 >
                   Timeline
                 </h1>
-                <div className="space-y-8 mx-4">
+                <div className="mx-4 has-[div:hover]:text-neutral-400">
                   {workExperiences.map((work, index) => (
                     <div
-                      className="flex flex-col md:flex-row justify-between items-start md:items-center gap-1 md:gap-3"
+                      className="hover:text-white group py-4 cursor-pointer transition-colors flex flex-col md:flex-row justify-between items-start md:items-center gap-1 md:gap-3"
                       key={index}
                     >
-                      <div className="text-neutral-400">{work.date}</div>
+                      <div className="text-neutral-400 group-hover:text-white transition-colors ">{work.date}</div>
                       <div className="border border-dashed border-neutral-700 flex-1 hidden md:block" />
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 ">
                         {work.title}
-                        {work.company && (
-                          <span className="text-neutral-400">
-                            ({work.company})
-                          </span>
-                        )}
                       </div>
                     </div>
                   ))}
