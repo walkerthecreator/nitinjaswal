@@ -1,51 +1,73 @@
 import { instrumentSerif } from "@/lib/font"
 import { motion } from "framer-motion"
-import { Mail, X } from "lucide-react"
+import { Mail, X, Calendar, Twitter, Linkedin } from "lucide-react"
 import { SetStateAction } from "react"
-import Button from "./Button"
-import Image from "next/image"
 
-export function Drawer({ setDrawer } : { setDrawer : React.Dispatch<SetStateAction<boolean>>  }){
-    return <motion.div
-    initial={{ y : 400 }}
-    animate={{ y : 0 }} 
-    exit={{ y : -400 }}
-    className="h-full bg-neutral-800 border border-neutral-600 w-full max-w-4xl mx-auto absolute rounded-t-3xl p-2 shadow-lg shadow-black top-10">
-  
-        <button onClick={()=>{ setDrawer(false) }} className="bg-neutral-700 p-3 rounded-full float-end">
-        <X className="h-6 w-6 text-muted/70" /></button>
-  
-        <h1 className={`text-4xl font-medium py-4 text-center mt-10 ${instrumentSerif.className}`}>Get in Touch </h1>
-        <div className="flex flex-col md:w-4/5 mx-auto mt-10 gap-20">
-          <div className="md:w-4/5 mx-auto flex flex-col gap-4">
-            <input 
-              className="p-2 px-3 bg-neutral-700 rounded-md border border-neutral-600" 
-              type="text" 
-              placeholder="Enter Name" 
-              name="name"
-            />
-            <input 
-              className="p-2 px-3 bg-neutral-700 rounded-md border border-neutral-600" 
-              type="email" 
-              placeholder="Enter Email" 
-              name="email" 
-            />
-            <p className="text-neutral-400 my-2 text-sm text-center">We&apos;ll Get back to you with-in 24 hours.</p>
-          </div>
-          <div className="flex flex-col gap-4">
-            <button 
-            className="text-zinc-100 mt-10 text-center mx-auto md:min-w-32 
-            bg-gradient-to-br from-neutral-800 to-neutral-900 border border-neutral-700
-            font-medium p-2 w-4/5 rounded-md flex justify-center items-center gap-2"><Mail className="h-4 w-4" /> Send Messages</button>
+const socialLinks = [
+  { href: "mailto:nitinjaswal2616@gmail.com", icon: Mail, label: "Email", external: false },
+  { href: "https://twitter.com/nitinjaswal26", icon: Twitter, label: "Twitter / X", external: true },
+  { href: "https://www.linkedin.com/in/nitinjaswal26/", icon: Linkedin, label: "Linkedin", external: true },
+]
 
-            <span className="mx-auto">or</span>
+export function Drawer({ setDrawer }: { setDrawer: React.Dispatch<SetStateAction<boolean>> }) {
+  return (
+    <motion.div
+      initial={{ y: 400 }}
+      animate={{ y: 0 }}
+      exit={{ y: -400 }}
+      className="h-[60vh] bg-neutral-800 border border-neutral-600 w-full max-w-4xl mx-auto absolute rounded-t-3xl p-2 shadow-lg shadow-black bottom-0"
+    >
+      <button
+        onClick={() => setDrawer(false)}
+        className="bg-neutral-700/80 hover:bg-neutral-700 p-2.5 rounded-full float-end transition-colors"
+        aria-label="Close"
+      >
+        <X className="h-5 w-5 text-muted/70" />
+      </button>
 
-            <a target="_blank" href="https://cal.com/nitinjaswal/30min" className="relative bg-white w-4/5 mx-auto rounded-lg p-2 text-neutral-900 flex items-start justify-center gap-2">
-            <Image src="/images/potrait.png" className="rounded-full h-6 w-6" height={18} width={18} alt="image"/>
-            <span> Book call with Nitin </span>
-            <span className="h-[2px] bg-gradient-to-r from-transparent via-lime-500 to-transparent  w-4/5 mx-auto absolute bottom-0" />
-            </a>
-          </div>
-        </div>
+      <h1 className={`text-3xl font-medium py-6 text-center mt-8 ${instrumentSerif.className}`}>
+        Get in Touch
+      </h1>
+
+
+<div className="px-4">
+      <motion.a
+        href="https://cal.com/nitinjaswal/30min"
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="flex items-center sm:mx-auto gap-2 w-full sm:max-w-md mb-6 py-3.5 px-4 rounded-xl bg-white text-neutral-900 font-medium hover:bg-zinc-100 transition-colors"
+      >
+        <Calendar className="h-5 w-5 shrink-0" />
+        Book a call with Nitin
+      </motion.a>
+
+      <div className="flex items-center gap-3 my-10 max-w-md mx-auto">
+        <span className="flex-1 h-px bg-neutral-600" />
+        <span className="text-sm text-muted-foreground">or</span>
+        <span className="flex-1 h-px bg-neutral-600" />
+      </div>
+
+      <div className="flex flex-wrap flex-col sm:flex-row justify-center gap-3 pb-8 md:px-8">
+        {socialLinks.map(({ href, icon: Icon, label, external }, i) => (
+          <motion.a
+            key={label}
+            href={href}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noopener noreferrer" : undefined}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.05 }}
+            className="flex items-center  gap-2.5 min-w-[140px] px-4 py-3 rounded-xl bg-neutral-700/60 border border-neutral-600/80 hover:bg-neutral-700 hover:border-neutral-500 transition-colors text-zinc-200 text-sm"
+          >
+            <Icon className="h-4 w-4 text-muted-foreground shrink-0" />
+            <span>{label}</span>
+          </motion.a>
+        ))}
+      </div>
+  </div>
+
     </motion.div>
-  }
+  )
+}
