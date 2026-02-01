@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence, useScroll } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -7,7 +7,6 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sparkle, Mail, Calendar, Twitter } from "lucide-react";
 import { instrumentSerif } from "@/lib/font";
 import { cn } from "@/lib/utils";
-``;
 
 const icons = [
   {
@@ -15,8 +14,8 @@ const icons = [
     title: "Typescript",
   },
   {
-    icon: "javascript.svg",
-    title: "Javascript",
+    icon: "langchain.svg",
+    title: "Langchain",
   },
   {
     icon: "next.svg",
@@ -24,7 +23,7 @@ const icons = [
   },
   {
     icon: "react.svg",
-    title: "ReactJs",
+    title: "React Native",
   },
   {
     icon: "redux.svg",
@@ -38,10 +37,14 @@ const icons = [
     icon: "nodejs.svg",
     title: "NodeJs",
   },
+  // {
+  //   icon: "expressjs.svg",
+  //   title: "ExpressJS",
+  // },
   {
-    icon: "expressjs.svg",
-    title: "ExpressJS",
-  },
+    icon: "sst.svg",
+    title: "SST",
+  }, 
   {
     icon: "redis.svg",
     title: "Redis",
@@ -227,7 +230,7 @@ export default function Home() {
                     alt={item.title}
                     className="h-12 w-12 saturate-0 invert "
                   />
-                  <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="text-xs opacity-90 group-hover:opacity-100 tracking-wider transition-opacity">
                     {item.title}
                   </span>
                 </div>
@@ -244,7 +247,7 @@ export default function Home() {
                 )}
               >
                 <h2
-                  className={`${instrumentSerif.className} font-bold text-4xl`}
+                  className={`${instrumentSerif.className}  text-4xl`}
                 >
                   Let&apos;s build your Next Big Idea
                 </h2>
