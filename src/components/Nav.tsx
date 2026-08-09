@@ -41,7 +41,7 @@ export default function Nav() {
         <div className="flex min-w-0 items-center gap-1.5 text-xs sm:text-sm">
           <div className="flex items-center rounded-full border border-white/[0.07] bg-black/20 p-0.5">
             <Link
-              href="/projects"
+              href="/#projects"
               aria-current={isProjectsPage ? "page" : undefined}
               className={cn(
                 "rounded-full px-2.5 py-2 text-neutral-400 transition-all hover:bg-white/[0.06] hover:text-white sm:px-3",
