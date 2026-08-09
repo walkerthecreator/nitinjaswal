@@ -1,111 +1,36 @@
 "use client";
-import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Sparkle, Mail, Calendar, Twitter } from "lucide-react";
+import { ArrowUpRight, Mail, Calendar, Twitter } from "lucide-react";
 import { instrumentSerif } from "@/lib/font";
-import { cn } from "@/lib/utils";
-
-const icons = [
-  {
-    icon: "typescript.svg",
-    title: "Typescript",
-  },
-  {
-    icon: "langchain.svg",
-    title: "Langchain",
-  },
-  {
-    icon: "next.svg",
-    title: "NextJs",
-  },
-  {
-    icon: "react.svg",
-    title: "React Native",
-  },
-  {
-    icon: "redux.svg",
-    title: "Redux",
-  },
-  {
-    icon: "tailwindcss.svg",
-    title: "TailwindCSS",
-  },
-  {
-    icon: "nodejs.svg",
-    title: "NodeJs",
-  },
-  // {
-  //   icon: "expressjs.svg",
-  //   title: "ExpressJS",
-  // },
-  {
-    icon: "sst.svg",
-    title: "SST",
-  }, 
-  {
-    icon: "redis.svg",
-    title: "Redis",
-  },
-  {
-    icon: "docker.svg",
-    title: "Docker",
-  },
-  {
-    icon: "postgresql.svg",
-    title: "PostgreSQL",
-  },
-  {
-    icon: "git.svg",
-    title: "Git",
-  },
-];
-
-const workExperiences = [
-  {
-    title: "Freelance Fullstack Developer",
-    date: "March, 2025 - Present",
-  },
-  {
-    title: "Full Stack Engineer",
-    date: "Sep, 2024 - March, 2025",
-    company: "Blockchain Startup",
-    isPresent: true,
-    points: [
-      "Developing a WLS to Offset carbon emissions with seamless integration.",
-      "Enabled real-time updates via configurable webhooks and callback mechanisms.",
-      "Architect solution with rate-limiting, caching, and auto-scaling mechanisms.",
-    ],
-  },
-  {
-    title: "Full Stack Engineer",
-    date: "June, 2023 - June, 2024",
-    company: "Service Based",
-    points: [
-      'Built an <span class="highlight">Image Annonation</span> tool for creating Annonations of Tractors for <span class="highlight">New Holland</span>.',
-      "Utilized NodeJs, MySQL and FabricJs as the core tech stack.",
-      "Assisted in the building and integrated a real-time monitoring system using Node.Js and WebSockets.",
-    ],
-  },
-  {
-    title: "Frontend Developer Intern",
-    date: "Jan, 2023 - June, 2023",
-    points: [
-      "Revamped UI and Improved UX for Various Client Web Apps",
-      "Contributed to web apps involving JavaScript, jQuery, CSS,HTML and MySQL.",
-      "Implemented backend functionalities, gaining hands-on experience in Node.js along with Express.js.",
-    ],
-  },
-  {
-    title: "Freelance Frontend Developer",
-    date: "June, 2022 - Nov, 2023",
-  },
-];
+import { profile, skills, workExperiences } from "@/data/portfolio";
 
 export default function Home() {
-  const [isContactOpen, setIsContactOpen] = useState(false);
+  const contactOptions = [
+    {
+      label: "Send an email",
+      detail: "nitinjaswal2616@gmail.com",
+      href: profile.links.email,
+      icon: Mail,
+      external: false,
+    },
+    {
+      label: "Message on X",
+      detail: "@nitinjaswal26",
+      href: profile.links.x,
+      icon: Twitter,
+      external: true,
+    },
+    {
+      label: "Schedule a call",
+      detail: "Pick a 30 minute slot",
+      href: profile.links.calendar,
+      icon: Calendar,
+      external: true,
+    },
+  ];
+
   return (
     <>
       <div className="min-w-screen min-h-screen px-2">
@@ -138,7 +63,7 @@ export default function Home() {
               transition={{ duration: 0.4, ease: "easeOut" }}
               className={`text-4xl text-left font-semibold ${instrumentSerif.className}`}
             >
-              Nitin Jaswal
+              {profile.name}
             </motion.h1>
             <motion.h1
               initial={{ y: 10, opacity: 0, filter: "blur(10px)" }}
@@ -146,11 +71,7 @@ export default function Home() {
               transition={{ duration: 0.4, ease: "easeOut" }}
               className="w-full text-start leading-relaxed "
             >
-              a Software / Fullstack Engineer passionate about crafting
-              meaningful products and user experiences. Lately, I&apos;ve been
-              diving deeper into app development and exploring the exciting
-              world of Generative AI. Always learning, always building — trying
-              to live up to the word <span className="italic">engineer</span>.
+              {profile.summary}
             </motion.h1>
 
             <div className="flex items-center justify-center gap-4 mt-10 has-[img:hover]:saturate-0">
@@ -218,7 +139,7 @@ export default function Home() {
               Tech Cloud
             </h1>
             <div className="grid grid-cols-4 gap-8">
-              {icons.map((item, index) => (
+              {skills.map((item, index) => (
                 <div
                   key={index}
                   className="flex flex-col items-center gap-2 group"
@@ -238,94 +159,70 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="max-w-4xl mx-auto h-96 md:min-h-screen flex rounded-xl flex-col gap-10 items-center justify-center">
-            <div className="w-full relative grid md:grid-cols-2 rounded-xl overflow-hidden">
-              <div
-                className={cn(
-                  "bg-neutral-800 p-6 flex flex-col items-center justify-center gap-4",
-                  isContactOpen && "max-sm:h-[400px] max-sm:pb-40"
-                )}
-              >
-                <h2
-                  className={`${instrumentSerif.className}  text-4xl`}
-                >
-                  Let&apos;s build your Next Big Idea
-                </h2>
+          <section className="mx-auto flex min-h-screen max-w-4xl items-center justify-center py-20">
+            <div className="relative grid w-full overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 shadow-[0_24px_80px_rgba(0,0,0,0.42)] md:grid-cols-2">
+              <div className="relative flex flex-col justify-between gap-10 overflow-hidden p-6 sm:p-8">
+                <div className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-lime-300/[0.06] blur-3xl" />
 
-                <div className="relative w-full">
-                  <motion.button
-                    onClick={() => setIsContactOpen(!isContactOpen)}
-                    className="w-full bg-white text-primary p-3 rounded-xl flex items-center mt-4 justify-center gap-2 ring ring-neutral-600"
-                  >
-                    <Sparkle className="h-4 w-4" />
-                    Get in Touch
-                  </motion.button>
-
-                  {isContactOpen && (
-                    <div className="mt-6 relative">
-                      <AnimatePresence>
-                        <motion.div
-                          className="flex flex-col justify-center gap-2 w-full absolute left-0 right-0"
-                          initial={{ opacity: 1 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                        >
-                          <motion.a
-                            initial={{ y: -20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -10, opacity: 0 }}
-                            transition={{ duration: 0.2, delay: 0 }}
-                            href="https://twitter.com/nitinjaswal26"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-20"
-                          >
-                            <Twitter className="h-5 w-5" />
-                            twitter / X
-                          </motion.a>
-
-                          <motion.a
-                            initial={{ y: -20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -10, opacity: 0 }}
-                            transition={{ duration: 0.2, delay: 0.1 }}
-                            href="mailto:nitinjaswal2616@gmail.com"
-                            className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-10"
-                          >
-                            <Mail className="h-5 w-5" />
-                            nitinjaswal2616
-                          </motion.a>
-
-                          <motion.a
-                            initial={{ y: -20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -10, opacity: 0 }}
-                            transition={{ duration: 0.2, delay: 0.2 }}
-                            href="https://cal.com/nitinjaswal/30min"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-0"
-                          >
-                            <Calendar className="h-5 w-5" />
-                            schedule a call
-                          </motion.a>
-                        </motion.div>
-                      </AnimatePresence>
-                    </div>
-                  )}
+                <div className="relative">
+                  <div className="mb-6 flex w-fit items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/[0.07] px-3 py-1.5 text-[11px] text-emerald-300">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]" />
+                    Open for new opportunities
+                  </div>
+                  <h2 className={`${instrumentSerif.className} max-w-sm text-4xl leading-[1.05] sm:text-5xl`}>
+                    Let&apos;s build your next big idea.
+                  </h2>
+                  <p className="mt-4 max-w-sm leading-relaxed text-neutral-400">
+                    Have a project, role, or collaboration in mind? Choose the quickest way to reach me.
+                  </p>
                 </div>
 
-                <motion.div className="flex items-center gap-1">
-                  <div className="bg-green-500 h-2 w-2 rounded-xl" />
-                  <span className="text-xs">Open for New Oppurtuinities</span>
-                </motion.div>
+                <div className="relative space-y-2">
+                  {contactOptions.map((option, index) => {
+                    const Icon = option.icon;
+
+                    return (
+                      <motion.a
+                        key={option.label}
+                        href={option.href}
+                        target={option.external ? "_blank" : undefined}
+                        rel={option.external ? "noopener noreferrer" : undefined}
+                        initial={{ opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: index * 0.06 }}
+                        whileHover={{ x: 3 }}
+                        className={`group flex items-center gap-3 rounded-xl border p-3 transition-colors ${
+                          index === 0
+                            ? "border-white bg-white text-neutral-950"
+                            : "border-white/10 bg-white/[0.035] text-white hover:border-white/20 hover:bg-white/[0.07]"
+                        }`}
+                      >
+                        <span
+                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${
+                            index === 0 ? "bg-neutral-900 text-white" : "bg-white/[0.07] text-neutral-300"
+                          }`}
+                        >
+                          <Icon className="h-4 w-4" aria-hidden="true" />
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-sm font-medium">{option.label}</span>
+                          <span className="block truncate text-xs text-neutral-500">
+                            {option.detail}
+                          </span>
+                        </span>
+                        <ArrowUpRight className="h-4 w-4 shrink-0 opacity-50 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" aria-hidden="true" />
+                      </motion.a>
+                    );
+                  })}
+                </div>
               </div>
               <Image
                 height={500}
                 width={700}
                 src="/images/me.jpg"
-                alt="landscape"
-                className="hidden md:inline h-[500px] w-full object-cover object-top"
+                alt="Nitin Jaswal"
+                className="hidden h-full min-h-[560px] w-full object-cover object-top grayscale transition-all duration-700 hover:grayscale-0 md:block"
               />
             </div>
           </section>

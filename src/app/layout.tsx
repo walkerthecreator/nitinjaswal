@@ -49,6 +49,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://nitinjaswal.me",
+    types: {
+      "text/plain": "https://nitinjaswal.me/llms.txt",
+    },
   },
 };
 
