@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from 'next/font/google';
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import { Analytics } from "@vercel/analytics/react";
 
-const inter = Inter({ subsets: ["latin"] });
+const themeScript = `
+  try {
+    const storedTheme = localStorage.getItem("portfolio-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.classList.toggle("dark", storedTheme ? storedTheme === "dark" : prefersDark);
+  } catch (_) {}
+`;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nitinjaswal.me"),
@@ -61,8 +67,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={ inter.className + " bg-black text-white text-sm"}>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className={`${GeistSans.className} bg-background text-foreground text-sm`}>
         <Nav />
         {children}
         <Analytics/>

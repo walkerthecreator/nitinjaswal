@@ -1,4 +1,3 @@
-import { instrumentSerif } from "@/lib/font"
 import { motion } from "framer-motion"
 import { Mail, X, Calendar, Twitter, Linkedin } from "lucide-react"
 import { SetStateAction } from "react"
@@ -25,7 +24,7 @@ export function Drawer({ setDrawer }: { setDrawer: React.Dispatch<SetStateAction
         <X className="h-5 w-5 text-muted/70" />
       </button>
 
-      <h1 className={`text-3xl font-medium py-6 text-center mt-8 ${instrumentSerif.className}`}>
+      <h1 className="mt-8 py-6 text-center text-3xl font-semibold tracking-tight">
         Get in Touch
       </h1>
 

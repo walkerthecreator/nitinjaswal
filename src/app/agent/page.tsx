@@ -28,10 +28,10 @@ function ExpandedLink({
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className="group block w-fit break-all text-[#f6f6f6] hover:underline hover:decoration-[#ff6b35]"
+      className="group block w-fit break-all text-foreground hover:underline dark:text-stone-100"
     >
       <span>[{children}]</span>
-      <span aria-hidden="true" className="ml-1 text-[#737373] group-hover:text-[#adadac]">
+      <span aria-hidden="true" className="ml-1 text-muted-foreground group-hover:text-foreground dark:text-stone-500 dark:group-hover:text-stone-300">
         ({href})
       </span>
     </Link>
@@ -46,7 +46,7 @@ function DocumentSection({
   className?: string;
 }) {
   return (
-    <section className={`border-x border-b border-[#434343] px-6 py-6 ${className}`}>
+    <section className={`border-x border-b border-border px-6 py-6 dark:border-stone-800 ${className}`}>
       {children}
     </section>
   );
@@ -66,7 +66,7 @@ export default function AgentPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#101010] pb-28 pt-6 font-mono text-[13px] font-normal leading-[1.45] text-[#adadac] selection:bg-[#d6d2c8] selection:text-[#101010]">
+    <main className="min-h-screen bg-background pb-28 pt-6 font-mono text-[13px] font-normal leading-[1.45] text-muted-foreground selection:bg-foreground selection:text-background dark:bg-stone-950 dark:text-stone-400">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -74,7 +74,7 @@ export default function AgentPage() {
 
       <article className="mx-auto w-[calc(100%-48px)] max-w-[640px]">
         <DocumentSection className="border-t">
-          <p className="text-[#737373]">Agent-readable portfolio</p>
+          <p className="text-muted-foreground dark:text-stone-500">Agent-readable portfolio</p>
           <div className="mt-4 space-y-1">
             <ExpandedLink href="/">Human portfolio</ExpandedLink>
             <ExpandedLink href="/projects">Projects</ExpandedLink>
@@ -84,17 +84,17 @@ export default function AgentPage() {
         </DocumentSection>
 
         <DocumentSection>
-          <h1 className="text-[13px] font-normal text-[#f6f6f6]"># {profile.name}</h1>
+          <h1 className="text-[13px] font-normal text-foreground dark:text-stone-100"># {profile.name}</h1>
           <p className="mt-4">{profile.role}</p>
           <p className="mt-4">{profile.summary}</p>
-          <p className="mt-4 text-[#f6f6f6]">Availability: {profile.availability}</p>
+          <p className="mt-4 text-foreground dark:text-stone-100">Availability: {profile.availability}</p>
           <p className="mt-4">
             Education: {profile.education.degree} ({profile.education.years})
           </p>
         </DocumentSection>
 
         <DocumentSection>
-          <h2 className="text-[13px] font-normal text-[#f6f6f6]">## Skills</h2>
+          <h2 className="text-[13px] font-normal text-foreground dark:text-stone-100">## Skills</h2>
           <ul className="mt-4 space-y-1">
             {skills.map((skill) => (
               <li key={skill.title}>- {skill.title}</li>
@@ -103,11 +103,11 @@ export default function AgentPage() {
         </DocumentSection>
 
         <DocumentSection>
-          <h2 className="text-[13px] font-normal text-[#f6f6f6]">## Experience</h2>
+          <h2 className="text-[13px] font-normal text-foreground dark:text-stone-100">## Experience</h2>
           <div className="mt-4 space-y-6">
             {workExperiences.map((work) => (
               <section key={`${work.title}-${work.date}`}>
-                <h3 className="text-[13px] font-normal text-[#f6f6f6]">### {work.title}</h3>
+                <h3 className="text-[13px] font-normal text-foreground dark:text-stone-100">### {work.title}</h3>
                 <p>{[work.company, work.date].filter(Boolean).join(" | ")}</p>
                 {work.points && (
                   <ul className="mt-2 space-y-1">
@@ -122,11 +122,11 @@ export default function AgentPage() {
         </DocumentSection>
 
         <DocumentSection>
-          <h2 className="text-[13px] font-normal text-[#f6f6f6]">## Projects</h2>
+          <h2 className="text-[13px] font-normal text-foreground dark:text-stone-100">## Projects</h2>
           <div className="mt-4 space-y-6">
             {projects.map((project) => (
               <section key={project.title}>
-                <h3 className="text-[13px] font-normal text-[#f6f6f6]">### {project.title}</h3>
+                <h3 className="text-[13px] font-normal text-foreground dark:text-stone-100">### {project.title}</h3>
                 <p>- Type: {project.badge}</p>
                 <p>- Summary: {project.description}</p>
                 <p>- Stack: {project.tech.join(", ")}</p>
@@ -145,7 +145,7 @@ export default function AgentPage() {
         </DocumentSection>
 
         <DocumentSection>
-          <h2 className="text-[13px] font-normal text-[#f6f6f6]">## Contact</h2>
+          <h2 className="text-[13px] font-normal text-foreground dark:text-stone-100">## Contact</h2>
           <div className="mt-4 space-y-1">
             <ExpandedLink href={profile.links.email}>Email</ExpandedLink>
             <ExpandedLink href={profile.links.github} external>
@@ -160,7 +160,7 @@ export default function AgentPage() {
           </div>
         </DocumentSection>
 
-        <footer className="border-x border-b border-[#434343] px-6 py-6 text-[#737373]">
+        <footer className="border-x border-b border-border px-6 py-6 text-muted-foreground dark:border-stone-800 dark:text-stone-500">
           End of document.
         </footer>
       </article>

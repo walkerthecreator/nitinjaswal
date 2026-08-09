@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Moon, Sun } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
@@ -10,6 +11,12 @@ export default function Nav() {
   const isProjectsPage = pathname === "/projects";
   const isAboutPage = pathname === "/about";
 
+  const toggleTheme = () => {
+    const nextTheme = document.documentElement.classList.contains("dark") ? "light" : "dark";
+    document.documentElement.classList.toggle("dark", nextTheme === "dark");
+    localStorage.setItem("portfolio-theme", nextTheme);
+  };
+
   return (
     <nav
       aria-label="Primary navigation"
@@ -17,35 +24,34 @@ export default function Nav() {
     >
       <div
         className={cn(
-          "pointer-events-auto relative flex w-full max-w-3xl items-center justify-between gap-1.5 overflow-hidden rounded-full border p-1.5 text-white shadow-[0_18px_60px_rgba(0,0,0,0.5),0_2px_8px_rgba(0,0,0,0.35)] backdrop-blur-2xl",
-          "before:pointer-events-none before:absolute before:inset-x-6 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent",
-          isAgentMode
-            ? "border-[#434343] bg-[#181818]/90 font-mono"
-            : "border-white/15 bg-neutral-900/85",
+          "pointer-events-auto relative flex w-full max-w-3xl items-center justify-between gap-1.5 overflow-hidden rounded-full border p-1.5 shadow-[0_16px_40px_rgba(0,0,0,0.14)] backdrop-blur-2xl dark:shadow-[0_18px_60px_rgba(0,0,0,0.5)]",
+          "before:pointer-events-none before:absolute before:inset-x-6 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-foreground/20 before:to-transparent dark:before:via-white/30",
+          "border-border bg-background/90 text-foreground dark:border-stone-800 dark:bg-stone-950/90 dark:text-stone-100",
+          isAgentMode && "font-mono",
         )}
       >
         <Link
           href="/"
           className={cn(
-            "group flex h-10 min-w-0 items-center gap-2 rounded-full px-1.5 pr-2 transition-colors hover:bg-white/[0.07] max-[360px]:hidden",
-            pathname === "/" && !isAgentMode && "bg-white/[0.06]",
+            "group flex h-10 min-w-0 items-center gap-2 rounded-full px-1.5 pr-2 transition-colors hover:bg-accent max-[480px]:hidden dark:hover:bg-stone-900",
+            pathname === "/" && !isAgentMode && "bg-accent dark:bg-stone-900",
           )}
           aria-label="Nitin Jaswal, home"
         >
-          <span className="relative h-7 w-7 shrink-0 rounded-full bg-gradient-to-br from-emerald-300 via-green-400 to-lime-300 shadow-[0_0_20px_rgba(74,222,128,0.24)] transition-transform duration-300 group-hover:rotate-12 group-hover:scale-105">
-            <span className="absolute inset-[3px] rounded-full border border-white/30" />
+          <span className="relative h-7 w-7 shrink-0 rounded-full bg-foreground transition-transform duration-300 group-hover:scale-105 dark:bg-stone-100">
+            <span className="absolute inset-[5px] rounded-full border border-background/50 dark:border-stone-950/50" />
           </span>
           <span className="hidden truncate text-sm font-medium sm:inline">Nitin Jaswal</span>
         </Link>
 
         <div className="flex min-w-0 items-center gap-1.5 text-xs sm:text-sm">
-          <div className="flex items-center rounded-full border border-white/[0.07] bg-black/20 p-0.5">
+          <div className="flex items-center rounded-full border border-border bg-muted/60 p-0.5 dark:border-stone-800 dark:bg-stone-900/70">
             <Link
               href="/#projects"
               aria-current={isProjectsPage ? "page" : undefined}
               className={cn(
-                "rounded-full px-2.5 py-2 text-neutral-400 transition-all hover:bg-white/[0.06] hover:text-white sm:px-3",
-                isProjectsPage && "bg-white/10 text-white shadow-sm",
+                "rounded-full px-2.5 py-2 text-muted-foreground transition-all hover:bg-background hover:text-foreground sm:px-3 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-100",
+                isProjectsPage && "bg-background text-foreground shadow-sm dark:bg-stone-800 dark:text-stone-100",
               )}
             >
               Projects
@@ -54,8 +60,8 @@ export default function Nav() {
               href="/about"
               aria-current={isAboutPage ? "page" : undefined}
               className={cn(
-                "rounded-full px-2.5 py-2 text-neutral-400 transition-all hover:bg-white/[0.06] hover:text-white sm:px-3",
-                isAboutPage && "bg-white/10 text-white shadow-sm",
+                "rounded-full px-2.5 py-2 text-muted-foreground transition-all hover:bg-background hover:text-foreground sm:px-3 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-100",
+                isAboutPage && "bg-background text-foreground shadow-sm dark:bg-stone-800 dark:text-stone-100",
               )}
             >
               About
@@ -63,7 +69,7 @@ export default function Nav() {
           </div>
 
           <div
-            className="flex items-center rounded-full border border-white/[0.09] bg-black/30 p-0.5 font-mono text-[10px] uppercase tracking-wide sm:text-[11px]"
+            className="flex items-center rounded-full border border-border bg-muted/60 p-0.5 text-[10px] uppercase tracking-wide dark:border-stone-800 dark:bg-stone-900/70 sm:text-[11px]"
             aria-label="Choose portfolio mode"
           >
             <Link
@@ -71,8 +77,8 @@ export default function Nav() {
               aria-label="Switch to human mode"
               aria-current={!isAgentMode ? "page" : undefined}
               className={cn(
-                "flex items-center gap-1.5 rounded-full px-2 py-2 text-neutral-400 transition-all hover:text-white sm:px-2.5",
-                !isAgentMode && "bg-white text-neutral-950 shadow-sm hover:text-neutral-950",
+                "flex items-center gap-1.5 rounded-full px-2 py-2 text-muted-foreground transition-all hover:text-foreground dark:text-stone-400 dark:hover:text-stone-100 sm:px-2.5",
+                !isAgentMode && "bg-foreground text-background shadow-sm hover:text-background dark:bg-stone-100 dark:text-stone-950 dark:hover:text-stone-950",
               )}
             >
               <span className={cn("h-1.5 w-1.5 rounded-full border border-current", !isAgentMode && "bg-current")} />
@@ -83,14 +89,24 @@ export default function Nav() {
               aria-label="Switch to agent mode"
               aria-current={isAgentMode ? "page" : undefined}
               className={cn(
-                "flex items-center gap-1.5 rounded-full px-2 py-2 text-neutral-400 transition-all hover:text-white sm:px-2.5",
-                isAgentMode && "bg-lime-300 text-neutral-950 shadow-sm hover:text-neutral-950",
+                "flex items-center gap-1.5 rounded-full px-2 py-2 text-muted-foreground transition-all hover:text-foreground dark:text-stone-400 dark:hover:text-stone-100 sm:px-2.5",
+                isAgentMode && "bg-foreground text-background shadow-sm hover:text-background dark:bg-stone-100 dark:text-stone-950 dark:hover:text-stone-950",
               )}
             >
               <span className={cn("h-1.5 w-1.5 rounded-full border border-current", isAgentMode && "bg-current")} />
               <span>Agent</span>
             </Link>
           </div>
+
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label="Toggle color theme"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-colors hover:bg-accent hover:text-foreground dark:border-stone-800 dark:bg-stone-900 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-100"
+          >
+            <Moon className="h-3.5 w-3.5 dark:hidden" aria-hidden="true" />
+            <Sun className="hidden h-3.5 w-3.5 dark:block" aria-hidden="true" />
+          </button>
         </div>
       </div>
     </nav>

@@ -1,7 +1,6 @@
 "use client";
 import Project from "@/components/Project";
 import { useState } from "react";
-import { instrumentSerif } from "@/lib/font";
 import { Drawer } from "@/components/drawer";
 import { CallingPill } from "@/components/CallingIsland";
 import { projects } from "@/data/portfolio";
@@ -20,11 +19,7 @@ function Projects() {
 }
 
       <div className="p-3 md:pt-10">
-        {/* <h1 className={`text-4xl my-10 font-medium text-center ${instrumentSerif.className}`}>
-          Things I&apos;ve Built
-        </h1> */}
-
-      <div className={`text-3xl font-semibold text-justify md:text-5xl md:text-center md:font-medium w-11/12 md:w-3/4 mt-20 mx-auto ${instrumentSerif.className}`}>
+      <div className="mx-auto mt-20 w-11/12 text-justify text-3xl font-semibold tracking-tight md:w-3/4 md:text-center md:text-5xl">
         <h1 className="text-zinc-500">I&apos;ve spent the last <span className="text-zinc-200">few years</span> building a wide range of <span className="text-zinc-200">aesthetically pleasing, functional web apps</span>.</h1>
       </div>
 
@@ -48,4 +43,3 @@ function Projects() {
 }
 
 export default Projects;
-
