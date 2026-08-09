@@ -61,7 +61,6 @@ export default function AgentPage() {
     description: profile.summary,
     url: "https://nitinjaswal.me",
     sameAs: [profile.links.github, profile.links.x],
-    alumniOf: profile.education.degree,
     knowsAbout: skills.map((skill) => skill.title),
   };
 
@@ -88,9 +87,7 @@ export default function AgentPage() {
           <p className="mt-4">{profile.role}</p>
           <p className="mt-4">{profile.summary}</p>
           <p className="mt-4 text-foreground dark:text-stone-100">Availability: {profile.availability}</p>
-          <p className="mt-4">
-            Education: {profile.education.degree} ({profile.education.years})
-          </p>
+          <p className="mt-4">Current focus: {profile.focus}</p>
         </DocumentSection>
 
         <DocumentSection>

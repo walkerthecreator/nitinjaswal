@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import { Analytics } from "@vercel/analytics/react";
@@ -12,16 +12,11 @@ const themeScript = `
   } catch (_) {}
 `;
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://nitinjaswal.me"),
   title: "Nitin Jaswal",
-  description: "Portfolio of Nitin Jaswal - Design Engineer crafting digital experiences with code and creativity.",
-  keywords: ["Nitin Jaswal", "Design Engineer", "Portfolio", "Web Developer", "Frontend Developer"],
+  description: "Portfolio of Nitin Jaswal, a senior product engineer building durable software products.",
+  keywords: ["Nitin Jaswal", "Senior Product Engineer", "Product Engineer", "Software Engineer", "Portfolio"],
   authors: [{ name: "Nitin Jaswal" }],
   creator: "Nitin Jaswal",
   openGraph: {
@@ -29,21 +24,21 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://nitinjaswal.me",
     siteName: "Nitin Jaswal",
-    title: "Nitin Jaswal - Design Engineer",
-    description: "Portfolio of Nitin Jaswal - Design Engineer crafting digital experiences with code and creativity.",
+    title: "Nitin Jaswal - Senior Product Engineer",
+    description: "Portfolio of Nitin Jaswal, a senior product engineer building durable software products.",
     images: [
       {
         url: "/images/nitin.jpg",
         width: 1200,
         height: 630,
-        alt: "Nitin Jaswal - Design Engineer",
+        alt: "Nitin Jaswal - Senior Product Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nitin Jaswal - Design Engineer",
-    description: "Portfolio of Nitin Jaswal - Design Engineer crafting digital experiences with code and creativity.",
+    title: "Nitin Jaswal - Senior Product Engineer",
+    description: "Portfolio of Nitin Jaswal, a senior product engineer building durable software products.",
     images: ["/images/nitin.jpg"],
     creator: "@nitinjaswal",
   },
@@ -76,7 +71,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className={`${inter.className} bg-background text-foreground text-sm`}>
+      <body className={`${GeistSans.className} ${GeistSans.variable} bg-background text-foreground text-sm`}>
         <Nav />
         {children}
         <Analytics/>

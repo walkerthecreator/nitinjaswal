@@ -16,15 +16,12 @@ export type Project = {
 
 export const profile = {
   name: "Nitin Jaswal",
-  role: "Software / Full Stack Engineer",
+  role: "Senior Product Engineer",
   summary:
-    "Software and full stack engineer focused on crafting meaningful products and thoughtful user experiences. Currently exploring app development and generative AI while continuing to build across the web stack.",
+    "I design and ship durable software products, owning architecture, product decisions, and delivery from first principles through production. My current focus is web platforms, apps, and applied AI.",
   availability:
     "Open to freelance, part-time, collaborative, and full-time opportunities.",
-  education: {
-    degree: "B.Tech in Computer Science & Engineering",
-    years: "2019 - 2023",
-  },
+  focus: "Product engineering across web, apps, and applied AI.",
   links: {
     email: "mailto:nitinjaswal2616@gmail.com",
     github: "https://github.com/walkerthecreator",
@@ -50,11 +47,11 @@ export const skills = [
 
 export const workExperiences: WorkExperience[] = [
   {
-    title: "Freelance Full Stack Developer",
+    title: "Independent Product Engineer",
     date: "March 2025 - Present",
   },
   {
-    title: "Full Stack Engineer",
+    title: "Product Engineer",
     date: "September 2024 - March 2025",
     company: "Blockchain startup",
     points: [
@@ -64,7 +61,7 @@ export const workExperiences: WorkExperience[] = [
     ],
   },
   {
-    title: "Full Stack Engineer",
+    title: "Product Engineer",
     date: "June 2023 - June 2024",
     company: "Service-based company",
     points: [
@@ -74,7 +71,7 @@ export const workExperiences: WorkExperience[] = [
     ],
   },
   {
-    title: "Frontend Developer Intern",
+    title: "Frontend Engineering Intern",
     date: "January 2023 - June 2023",
     points: [
       "Revamped interfaces and improved user experience across client web applications.",
@@ -83,7 +80,7 @@ export const workExperiences: WorkExperience[] = [
     ],
   },
   {
-    title: "Freelance Frontend Developer",
+    title: "Independent Frontend Engineer",
     date: "June 2022 - November 2023",
   },
 ];
@@ -91,14 +88,14 @@ export const workExperiences: WorkExperience[] = [
 export const projects: Project[] = [
   {
     title: "AI Interview Prep",
-    badge: "Full stack",
+    badge: "AI product",
     photo: "/images/interview.png",
     description: "A generative AI interview practice platform currently in development.",
     tech: ["Next.js", "Gemini", "PostgreSQL", "shadcn/ui", "Stripe"],
   },
   {
     title: "RateMyPG",
-    badge: "Full stack",
+    badge: "Consumer platform",
     photo: "/images/ratemypg.png",
     live: "https://ratemypg-gamma.vercel.app",
     description:
@@ -116,7 +113,7 @@ export const projects: Project[] = [
   },
   {
     title: "Indian Spokesman",
-    badge: "Full stack",
+    badge: "Publishing platform",
     photo: "/images/indian.png",
     description:
       "A Canadian-market news publishing platform built from scratch with server-side rendering, debounced input, pagination, responsive layouts, and VPS deployment.",
@@ -156,7 +153,7 @@ export function getAgentMarkdown() {
 - Role: ${profile.role}
 - Summary: ${profile.summary}
 - Availability: ${profile.availability}
-- Education: ${profile.education.degree}, ${profile.education.years}
+- Current focus: ${profile.focus}
 
 ## Skills
 

@@ -9,7 +9,7 @@ const page = () => {
     <div className="w-4/5 md:w-3/5/ lg:w-2/5 mx-auto mt-20 pb-10">
           <div className="flex gap-2 justify-between items-start">
               <div>
-                <h2 className="text-3xl font-semibold tracking-tight">{profile.name}</h2>
+                <h2 className="font-display text-3xl font-medium tracking-tight">{profile.name}</h2>
                   <p className="md:w-2/4 mt-2 text-muted/60">{profile.role} focused on building thoughtful products.</p>
                   <div className="mt-3 flex gap-2 text-zinc-200">
 
@@ -25,12 +25,12 @@ const page = () => {
           </div>
 
           <div className="mt-10">
-            <h2 className="text-2xl font-semibold tracking-tight">About</h2>
-            <p className="mt-4 text-muted/60">As a Full Stack Engineer i have currated multiple web apps. I mostly work with TypeScript, React, NodeJs, and NextJs. I have an over a year of experience in working on FullStack Projects and have a degree in Computer Science & Engineering. I Like Space, Bikes, Mountains, Music, Cosmos and Traveling.</p>
+            <h2 className="font-display text-2xl font-medium tracking-tight">About</h2>
+            <p className="mt-4 text-muted/60">I&apos;m a product engineer who enjoys turning thoughtful ideas into useful, durable software. I work across product decisions, architecture, and delivery with TypeScript, React, Node.js, and Next.js, and I&apos;m currently exploring app development and generative AI. Outside work, I enjoy space, bikes, mountains, music, and travel.</p>
           </div>
 
           <div className="mt-10">
-            <h2 className="text-2xl font-semibold tracking-tight">Now</h2>
+            <h2 className="font-display text-2xl font-medium tracking-tight">Now</h2>
             <p className="mt-4 text-muted/60">{profile.availability} Reach out to discuss what you&apos;re building.</p>
           </div>
 
