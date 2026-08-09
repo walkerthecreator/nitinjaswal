@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import { Analytics } from "@vercel/analytics/react";
@@ -11,6 +11,11 @@ const themeScript = `
     document.documentElement.classList.toggle("dark", storedTheme ? storedTheme === "dark" : prefersDark);
   } catch (_) {}
 `;
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nitinjaswal.me"),
@@ -71,7 +76,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className={`${GeistSans.className} bg-background text-foreground text-sm`}>
+      <body className={`${inter.className} bg-background text-foreground text-sm`}>
         <Nav />
         {children}
         <Analytics/>
