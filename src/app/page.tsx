@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground lg:grid lg:grid-cols-[minmax(380px,0.84fr)_minmax(0,1.16fr)] lg:items-start dark:bg-stone-950 dark:text-stone-100">
       <aside className="border-b border-border bg-background dark:border-stone-800 dark:bg-stone-950 lg:sticky lg:top-0 lg:h-screen lg:overflow-hidden lg:border-b-0 lg:border-r">
-        <div className="mx-auto min-h-screen w-full max-w-2xl px-6 pb-32 pt-12 sm:px-10 sm:pt-16 lg:flex lg:h-full lg:min-h-0 lg:max-w-none lg:flex-col lg:px-[clamp(2rem,4vw,5rem)] lg:pb-24 lg:pt-[clamp(1.25rem,4vh,3rem)]">
+        <div className="mx-auto min-h-screen w-full max-w-2xl px-6 pb-24 pt-12 sm:px-10 sm:pt-16 lg:flex lg:h-full lg:min-h-0 lg:max-w-none lg:flex-col lg:px-[clamp(2rem,4vw,5rem)] lg:pb-20 lg:pt-[clamp(1.25rem,4vh,3rem)]">
           <header className="mb-16 flex flex-col items-start sm:mb-20 lg:mb-[clamp(0.75rem,3vh,2rem)]">
             <h1 className="text-sm font-semibold leading-snug tracking-[-0.01em] text-foreground dark:text-stone-100">{profile.name}</h1>
             <p className="text-sm leading-snug text-muted-foreground dark:text-stone-400">{profile.role}</p>
@@ -83,7 +83,7 @@ export default function Home() {
         </div>
       </aside>
 
-      <section id="projects" aria-labelledby="projects-heading" className="min-w-0 bg-background px-5 pb-28 pt-8 dark:bg-stone-950 sm:px-10 lg:px-[clamp(2rem,5vw,5rem)] lg:pt-[clamp(2rem,5vh,4rem)]">
+      <section id="projects" aria-labelledby="projects-heading" className="min-w-0 bg-background px-5 pb-16 pt-8 dark:bg-stone-950 sm:px-10 lg:px-[clamp(2rem,5vw,5rem)] lg:pt-[clamp(2rem,5vh,4rem)]">
         <header className="mb-12 flex items-end justify-between gap-6 border-b border-border pb-5 dark:border-stone-800">
           <div>
             <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-muted-foreground dark:text-stone-500">Selected work / {projects.length}</p>
@@ -149,7 +149,7 @@ export default function Home() {
           ))}
         </div>
 
-        <footer className="py-16 text-center">
+        <footer className="pb-2 pt-16 text-center">
           <p className="font-display text-2xl font-medium tracking-tight">Have something interesting in mind?</p>
           <Link href={profile.links.email} className="mt-4 inline-flex items-center gap-2 border-b border-foreground pb-1 text-xs dark:border-stone-200">
             Start a conversation <ArrowUpRight className="h-3.5 w-3.5" />

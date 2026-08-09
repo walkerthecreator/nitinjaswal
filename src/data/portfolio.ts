@@ -177,8 +177,6 @@ ${projectList}
 ## Canonical pages
 
 - Portfolio: https://nitinjaswal.me
-- Projects: https://nitinjaswal.me/projects
-- About: https://nitinjaswal.me/about
 - Agent view: https://nitinjaswal.me/agent
 `;
 }

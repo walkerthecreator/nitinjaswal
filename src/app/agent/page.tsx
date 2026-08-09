@@ -65,7 +65,7 @@ export default function AgentPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background pb-28 pt-6 font-mono text-[13px] font-normal leading-[1.45] text-muted-foreground selection:bg-foreground selection:text-background dark:bg-stone-950 dark:text-stone-400">
+    <main className="min-h-screen bg-background pb-20 pt-6 font-mono text-[13px] font-normal leading-[1.45] text-muted-foreground selection:bg-foreground selection:text-background dark:bg-stone-950 dark:text-stone-400">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -76,8 +76,6 @@ export default function AgentPage() {
           <p className="text-muted-foreground dark:text-stone-500">Agent-readable portfolio</p>
           <div className="mt-4 space-y-1">
             <ExpandedLink href="/">Human portfolio</ExpandedLink>
-            <ExpandedLink href="/projects">Projects</ExpandedLink>
-            <ExpandedLink href="/about">About</ExpandedLink>
             <ExpandedLink href="/llms.txt">Raw text / llms.txt</ExpandedLink>
           </div>
         </DocumentSection>
