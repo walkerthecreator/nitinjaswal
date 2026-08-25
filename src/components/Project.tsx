@@ -7,11 +7,10 @@ interface Project{
     photo : string ,
     desc : string ,
     live : string ,
-    tech : string [] ,
-    badge : string 
+    tech : string []
 }
 
-function Project({ title, photo, desc, live, tech, badge } : Project ) {
+function Project({ title, photo, desc, live, tech } : Project ) {
     return (
         <div className="mt-20 ">
             <div className="w-full h-60 p-2 md:h-[40vh] group flex items-center justify-center bg-neutral-800 border border-neutral-700 rounded-md my-4 overflow-hidden ">

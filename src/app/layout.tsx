@@ -15,8 +15,8 @@ const themeScript = `
 export const metadata: Metadata = {
   metadataBase: new URL("https://nitinjaswal.me"),
   title: "Nitin Jaswal",
-  description: "Portfolio of Nitin Jaswal, a senior product engineer building durable software products.",
-  keywords: ["Nitin Jaswal", "Senior Product Engineer", "Product Engineer", "Software Engineer", "Portfolio"],
+  description: "Portfolio of Nitin Jaswal, a product engineer building durable software products.",
+  keywords: ["Nitin Jaswal", "Product Engineer", "Software Engineer", "Portfolio"],
   authors: [{ name: "Nitin Jaswal" }],
   creator: "Nitin Jaswal",
   openGraph: {
@@ -24,21 +24,21 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://nitinjaswal.me",
     siteName: "Nitin Jaswal",
-    title: "Nitin Jaswal - Senior Product Engineer",
-    description: "Portfolio of Nitin Jaswal, a senior product engineer building durable software products.",
+    title: "Nitin Jaswal - Product Engineer",
+    description: "Portfolio of Nitin Jaswal, a product engineer building durable software products.",
     images: [
       {
         url: "/images/nitin.jpg",
         width: 1200,
         height: 630,
-        alt: "Nitin Jaswal - Senior Product Engineer",
+        alt: "Nitin Jaswal - Product Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nitin Jaswal - Senior Product Engineer",
-    description: "Portfolio of Nitin Jaswal, a senior product engineer building durable software products.",
+    title: "Nitin Jaswal - Product Engineer",
+    description: "Portfolio of Nitin Jaswal, a product engineer building durable software products.",
     images: ["/images/nitin.jpg"],
     creator: "@nitinjaswal",
   },

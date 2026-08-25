@@ -122,7 +122,6 @@ export default function AgentPage() {
             {projects.map((project) => (
               <section key={project.title}>
                 <h3 className="text-[13px] font-normal text-foreground dark:text-stone-100">### {project.title}</h3>
-                <p>- Type: {project.badge}</p>
                 <p>- Summary: {project.description}</p>
                 <p>- Stack: {project.tech.join(", ")}</p>
                 {project.live ? (

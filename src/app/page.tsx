@@ -13,38 +13,57 @@ const contactLinks = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground lg:grid lg:grid-cols-[minmax(380px,0.84fr)_minmax(0,1.16fr)] lg:items-start dark:bg-stone-950 dark:text-stone-100">
-      <aside className="border-b border-border bg-background dark:border-stone-800 dark:bg-stone-950 lg:sticky lg:top-0 lg:h-screen lg:overflow-hidden lg:border-b-0 lg:border-r">
-        <div className="mx-auto min-h-screen w-full max-w-2xl px-6 pb-24 pt-12 sm:px-10 sm:pt-16 lg:flex lg:h-full lg:min-h-0 lg:max-w-none lg:flex-col lg:px-[clamp(2rem,4vw,5rem)] lg:pb-20 lg:pt-[clamp(1.25rem,4vh,3rem)]">
-          <header className="mb-16 flex flex-col items-start sm:mb-20 lg:mb-[clamp(0.75rem,3vh,2rem)]">
-            <h1 className="text-sm font-semibold leading-snug tracking-[-0.01em] text-foreground dark:text-stone-100">{profile.name}</h1>
-            <p className="text-sm leading-snug text-muted-foreground dark:text-stone-400">{profile.role}</p>
+      <aside className="scroll-thin border-b border-border bg-background dark:border-stone-800 dark:bg-stone-950 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto lg:overscroll-contain lg:border-b-0 lg:border-r lg:motion-safe:scroll-smooth">
+        <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-7 pb-24 pt-14 sm:px-10 sm:pt-16 lg:min-h-full lg:max-w-none lg:px-12 lg:pb-[clamp(1.625rem,3.5vh,3rem)] lg:pt-[clamp(1.875rem,4vh,3.25rem)] xl:px-16 2xl:px-20">
+          <header className="mb-14 flex flex-col items-start sm:mb-16 lg:mb-[clamp(1.625rem,3.8vh,3rem)]">
+            <h1 className="text-base font-medium leading-snug tracking-[-0.015em] text-foreground dark:text-stone-100">{profile.name}</h1>
+            <p className="mt-1 text-sm leading-snug text-muted-foreground dark:text-stone-400">{profile.role}</p>
           </header>
 
           <section aria-labelledby="profile-heading" className="max-w-lg">
-            <h2 id="profile-heading" className="mb-3 text-sm font-medium text-foreground dark:text-stone-100">Today</h2>
-            <p className="text-[13px] leading-[1.6] text-muted-foreground dark:text-stone-400">{profile.summary}</p>
+            <h2 id="profile-heading" className="mb-3.5 text-sm font-medium tracking-[-0.01em] text-foreground dark:text-stone-100">Today</h2>
+            <p className="text-[13.5px] leading-[1.7] text-muted-foreground dark:text-stone-400">{profile.summary}</p>
           </section>
 
-          <div className="mt-16 space-y-16 sm:mt-20 sm:space-y-20 lg:mt-[clamp(0.75rem,2.5vh,2rem)] lg:space-y-[clamp(0.75rem,2.5vh,2rem)]">
+          <div className="mt-14 space-y-14 sm:mt-16 sm:space-y-16 lg:mt-[clamp(1.5rem,3.3vh,2.75rem)] lg:space-y-[clamp(1.5rem,3.3vh,2.75rem)]">
             <section aria-labelledby="experience-heading">
-              <h2 id="experience-heading" className="mb-4 text-sm font-medium text-foreground dark:text-stone-100 lg:mb-[clamp(0.4rem,1.3vh,0.9rem)]">Experience</h2>
+              <h2 id="experience-heading" className="mb-1 text-sm font-medium tracking-[-0.01em] text-foreground dark:text-stone-100">Experience</h2>
 
-              <ol className="space-y-4 lg:space-y-[clamp(0.3rem,1vh,0.75rem)]">
-                {workExperiences.map((work) => (
-                  <li key={`${work.title}-${work.date}`} className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-5">
-                    <span className="min-w-0 text-xs leading-[1.35] text-foreground dark:text-stone-200 sm:text-[13px]">
-                      <span className="block truncate">{work.title}</span>
-                      {work.company && <span className="mt-0.5 block truncate text-[10px] text-muted-foreground dark:text-stone-500">{work.company}</span>}
-                    </span>
-                    <span className="max-w-28 text-right text-[10px] leading-[1.45] text-muted-foreground dark:text-stone-500 sm:max-w-none sm:text-[11px]">{work.date}</span>
-                  </li>
-                ))}
+              <ol className="divide-y divide-border/60 dark:divide-stone-800/70">
+                {workExperiences.map((work) => {
+                  const isPresent = /present/i.test(work.date);
+
+                  return (
+                    <li
+                      key={`${work.title}-${work.date}`}
+                      className="grid gap-y-1.5 py-[clamp(0.5rem,1.15vh,0.9rem)] last:pb-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-x-6 sm:gap-y-0"
+                    >
+                      <div className="min-w-0">
+                        <div className="flex min-w-0 items-center gap-2">
+                          <span className="truncate text-[13.5px] leading-snug text-foreground dark:text-stone-200">{work.title}</span>
+                          {isPresent && (
+                            <span className="relative flex h-1.5 w-1.5 shrink-0" aria-hidden="true">
+                              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500/60" />
+                              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                            </span>
+                          )}
+                        </div>
+                        {work.company && (
+                          <p className="mt-1.5 truncate text-[11.5px] leading-snug text-muted-foreground dark:text-stone-500">{work.company}</p>
+                        )}
+                      </div>
+                      <span className="shrink-0 text-[11.5px] leading-snug text-muted-foreground dark:text-stone-500 sm:whitespace-nowrap sm:text-right">
+                        {work.date}
+                      </span>
+                    </li>
+                  );
+                })}
               </ol>
             </section>
 
             <section aria-labelledby="stack-heading">
-              <h2 id="stack-heading" className="mb-4 text-sm font-medium text-foreground dark:text-stone-100 lg:mb-[clamp(0.4rem,1.3vh,0.9rem)]">Working stack</h2>
-              <ul className="grid grid-cols-2 gap-x-8 gap-y-4 sm:grid-cols-3 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-[clamp(0.4rem,1.2vh,0.9rem)]">
+              <h2 id="stack-heading" className="mb-5 text-sm font-medium tracking-[-0.01em] text-foreground dark:text-stone-100 lg:mb-[clamp(0.75rem,1.9vh,1.375rem)]">Working stack</h2>
+              <ul className="grid grid-cols-2 gap-x-8 gap-y-5 sm:grid-cols-3 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-[clamp(0.75rem,1.75vh,1.375rem)]">
                 {skills.map((skill) => (
                   <li key={skill.title} className="flex min-w-0 items-center gap-2.5">
                     <Image
@@ -54,16 +73,16 @@ export default function Home() {
                       height={20}
                       className="h-5 w-5 shrink-0 object-contain"
                     />
-                    <span className="truncate text-[11px] leading-none text-muted-foreground dark:text-stone-400">{skill.title}</span>
+                    <span className="truncate text-[12px] leading-none text-muted-foreground dark:text-stone-400">{skill.title}</span>
                   </li>
                 ))}
               </ul>
             </section>
           </div>
 
-          <footer className="mt-16 sm:mt-20 lg:mt-auto lg:pt-[clamp(0.5rem,1.5vh,1.25rem)]">
-            <h2 className="mb-3 text-sm font-medium text-foreground dark:text-stone-100">More</h2>
-            <nav aria-label="Contact links" className="flex flex-wrap gap-x-4 gap-y-2 text-[13px] text-muted-foreground dark:text-stone-400">
+          <footer className="mt-14 sm:mt-16 lg:mt-auto lg:pt-[clamp(1.5rem,3.3vh,2.75rem)]">
+            <h2 className="mb-3 text-sm font-medium tracking-[-0.01em] text-foreground dark:text-stone-100">More</h2>
+            <nav aria-label="Contact links" className="flex flex-wrap gap-x-5 gap-y-2.5 text-[13px] text-muted-foreground dark:text-stone-400">
               {contactLinks.map((contact) => {
                 return (
                   <Link
@@ -86,8 +105,8 @@ export default function Home() {
       <section id="projects" aria-labelledby="projects-heading" className="min-w-0 bg-background px-5 pb-16 pt-8 dark:bg-stone-950 sm:px-10 lg:px-[clamp(2rem,5vw,5rem)] lg:pt-[clamp(2rem,5vh,4rem)]">
         <header className="mb-12 flex items-end justify-between gap-6 border-b border-border pb-5 dark:border-stone-800">
           <div>
-            <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-muted-foreground dark:text-stone-500">Selected work / {projects.length}</p>
-            <h2 id="projects-heading" className="mt-2 font-display text-5xl font-medium tracking-[-0.035em] sm:text-6xl">
+            <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-muted-foreground dark:text-stone-500">Selected work</p>
+            <h2 id="projects-heading" className="mt-2 font-display text-2xl font-medium tracking-[-0.03em] sm:text-3xl">
               Projects
             </h2>
           </div>
@@ -97,16 +116,11 @@ export default function Home() {
         </header>
 
         <div>
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <article key={project.title} className="group border-b border-border py-10 first:pt-0 dark:border-stone-800 lg:py-14">
-              <div className="grid gap-7 xl:grid-cols-[minmax(0,1fr)_220px] xl:items-start">
+              <div className="grid gap-7 xl:grid-cols-[minmax(0,1fr)_220px] xl:items-stretch">
                 <div>
-                  <div className="mb-5 flex items-center justify-between gap-4 text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground dark:text-stone-500">
-                    <span>P{String(index + 1).padStart(2, "0")}</span>
-                    <span>{project.badge}</span>
-                  </div>
-
-                  <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-border bg-muted dark:border-stone-800 dark:bg-stone-900">
+                  <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-muted ring-1 ring-border dark:bg-stone-900 dark:ring-stone-800">
                     <Image
                       src={project.photo}
                       alt={`${project.title} project preview`}
@@ -114,12 +128,12 @@ export default function Home() {
                       sizes="(min-width: 1280px) 420px, (min-width: 1024px) 50vw, 100vw"
                       className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.015]"
                     />
-                    <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/30" />
+                    <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-black/[0.06] dark:ring-white/[0.07]" />
                   </div>
                 </div>
 
-                <div className="xl:pt-9">
-                  <h3 className="font-display text-2xl font-medium leading-none tracking-[-0.025em]">
+                <div className="flex flex-col xl:h-full">
+                  <h3 className="font-display text-base font-medium leading-snug tracking-[-0.02em]">
                     {project.title}
                   </h3>
                   <p className="mt-4 text-[13px] leading-[1.65] text-muted-foreground dark:text-stone-400">{project.description}</p>
@@ -135,13 +149,13 @@ export default function Home() {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-7 inline-flex items-center gap-2 rounded-full border border-foreground px-4 py-2 text-xs font-medium transition-colors hover:bg-foreground hover:text-background dark:border-stone-200 dark:hover:bg-stone-100 dark:hover:text-stone-950"
+                      className="mt-7 inline-flex w-fit items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 text-[11px] font-medium text-muted-foreground transition-colors hover:border-foreground hover:text-foreground dark:border-stone-800 dark:text-stone-400 dark:hover:border-stone-600 dark:hover:text-stone-100 xl:mt-auto"
                     >
                       View project
                       <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
                     </Link>
                   ) : (
-                    <p className="mt-7 text-[9px] font-medium uppercase tracking-[0.14em] text-muted-foreground dark:text-stone-600">Private / In progress</p>
+                    <p className="mt-7 text-[9px] font-medium uppercase tracking-[0.14em] text-muted-foreground dark:text-stone-600 xl:mt-auto">Private / In progress</p>
                   )}
                 </div>
               </div>
@@ -150,7 +164,7 @@ export default function Home() {
         </div>
 
         <footer className="pb-2 pt-16 text-center">
-          <p className="font-display text-2xl font-medium tracking-tight">Have something interesting in mind?</p>
+          <p className="font-display text-lg font-medium tracking-[-0.02em]">Have something interesting in mind?</p>
           <Link href={profile.links.email} className="mt-4 inline-flex items-center gap-2 border-b border-foreground pb-1 text-xs dark:border-stone-200">
             Start a conversation <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>

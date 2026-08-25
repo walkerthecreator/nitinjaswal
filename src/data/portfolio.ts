@@ -7,7 +7,6 @@ export type WorkExperience = {
 
 export type Project = {
   title: string;
-  badge: string;
   photo: string;
   description: string;
   tech: string[];
@@ -16,7 +15,7 @@ export type Project = {
 
 export const profile = {
   name: "Nitin Jaswal",
-  role: "Senior Product Engineer",
+  role: "Product Engineer",
   summary:
     "I design and ship durable software products, owning architecture, product decisions, and delivery from first principles through production. My current focus is web platforms, apps, and applied AI.",
   availability:
@@ -47,11 +46,11 @@ export const skills = [
 
 export const workExperiences: WorkExperience[] = [
   {
-    title: "Independent Product Engineer",
+    title: "Freelance Full Stack Developer",
     date: "March 2025 - Present",
   },
   {
-    title: "Product Engineer",
+    title: "Full Stack Engineer",
     date: "September 2024 - March 2025",
     company: "Blockchain startup",
     points: [
@@ -61,7 +60,7 @@ export const workExperiences: WorkExperience[] = [
     ],
   },
   {
-    title: "Product Engineer",
+    title: "Full Stack Engineer",
     date: "June 2023 - June 2024",
     company: "Service-based company",
     points: [
@@ -71,7 +70,7 @@ export const workExperiences: WorkExperience[] = [
     ],
   },
   {
-    title: "Frontend Engineering Intern",
+    title: "Frontend Developer Intern",
     date: "January 2023 - June 2023",
     points: [
       "Revamped interfaces and improved user experience across client web applications.",
@@ -80,7 +79,7 @@ export const workExperiences: WorkExperience[] = [
     ],
   },
   {
-    title: "Independent Frontend Engineer",
+    title: "Freelance Frontend Developer",
     date: "June 2022 - November 2023",
   },
 ];
@@ -88,14 +87,12 @@ export const workExperiences: WorkExperience[] = [
 export const projects: Project[] = [
   {
     title: "AI Interview Prep",
-    badge: "AI product",
     photo: "/images/interview.png",
     description: "A generative AI interview practice platform currently in development.",
     tech: ["Next.js", "Gemini", "PostgreSQL", "shadcn/ui", "Stripe"],
   },
   {
     title: "RateMyPG",
-    badge: "Consumer platform",
     photo: "/images/ratemypg.png",
     live: "https://ratemypg-gamma.vercel.app",
     description:
@@ -104,7 +101,6 @@ export const projects: Project[] = [
   },
   {
     title: "Skulltrooper",
-    badge: "Landing page",
     photo: "/images/skulltrooper.png",
     live: "https://skulltrooper.in",
     description:
@@ -113,7 +109,6 @@ export const projects: Project[] = [
   },
   {
     title: "Indian Spokesman",
-    badge: "Publishing platform",
     photo: "/images/indian.png",
     description:
       "A Canadian-market news publishing platform built from scratch with server-side rendering, debounced input, pagination, responsive layouts, and VPS deployment.",
@@ -136,7 +131,6 @@ export function getAgentMarkdown() {
     .map((project) =>
       [
         `### ${project.title}`,
-        `- Type: ${project.badge}`,
         `- Summary: ${project.description}`,
         `- Stack: ${project.tech.join(", ")}`,
         project.live ? `- Live: ${project.live}` : "- Status: No public URL available",

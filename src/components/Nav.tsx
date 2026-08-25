@@ -28,17 +28,6 @@ export default function Nav() {
           isAgentMode && "font-mono",
         )}
       >
-        <Link
-          href="/"
-          className={cn(
-            "flex h-10 min-w-0 items-center rounded-full px-3 transition-colors hover:bg-accent dark:hover:bg-stone-900",
-            pathname === "/" && "bg-accent dark:bg-stone-900",
-          )}
-          aria-label="Nitin Jaswal, home"
-        >
-          <span className="truncate text-xs font-medium sm:text-sm">Nitin Jaswal</span>
-        </Link>
-
         <div
           className="flex items-center rounded-full border border-border bg-muted/60 p-0.5 text-[10px] uppercase tracking-wide dark:border-stone-800 dark:bg-stone-900/70 sm:text-[11px]"
           aria-label="Choose portfolio mode"
@@ -48,11 +37,10 @@ export default function Nav() {
             aria-label="Switch to human mode"
             aria-current={!isAgentMode ? "page" : undefined}
             className={cn(
-              "flex items-center gap-1.5 rounded-full px-2.5 py-2 text-muted-foreground transition-all hover:text-foreground dark:text-stone-400 dark:hover:text-stone-100",
+              "rounded-full px-3 py-2 text-muted-foreground transition-all hover:text-foreground dark:text-stone-400 dark:hover:text-stone-100",
               !isAgentMode && "bg-foreground text-background shadow-sm hover:text-background dark:bg-stone-100 dark:text-stone-950 dark:hover:text-stone-950",
             )}
           >
-            <span className={cn("h-1.5 w-1.5 rounded-full border border-current", !isAgentMode && "bg-current")} />
             <span>Human</span>
           </Link>
           <Link
@@ -60,11 +48,10 @@ export default function Nav() {
             aria-label="Switch to agent mode"
             aria-current={isAgentMode ? "page" : undefined}
             className={cn(
-              "flex items-center gap-1.5 rounded-full px-2.5 py-2 text-muted-foreground transition-all hover:text-foreground dark:text-stone-400 dark:hover:text-stone-100",
+              "rounded-full px-3 py-2 text-muted-foreground transition-all hover:text-foreground dark:text-stone-400 dark:hover:text-stone-100",
               isAgentMode && "bg-foreground text-background shadow-sm hover:text-background dark:bg-stone-100 dark:text-stone-950 dark:hover:text-stone-950",
             )}
           >
-            <span className={cn("h-1.5 w-1.5 rounded-full border border-current", isAgentMode && "bg-current")} />
             <span>Agent</span>
           </Link>
         </div>
