@@ -1,336 +1,175 @@
-"use client";
-import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Sparkle, Mail, Calendar, Twitter } from "lucide-react";
-import { instrumentSerif } from "@/lib/font";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { profile, projects, skills, workExperiences } from "@/data/portfolio";
 
-const icons = [
-  {
-    icon: "typescript.svg",
-    title: "Typescript",
-  },
-  {
-    icon: "langchain.svg",
-    title: "Langchain",
-  },
-  {
-    icon: "next.svg",
-    title: "NextJs",
-  },
-  {
-    icon: "react.svg",
-    title: "React Native",
-  },
-  {
-    icon: "redux.svg",
-    title: "Redux",
-  },
-  {
-    icon: "tailwindcss.svg",
-    title: "TailwindCSS",
-  },
-  {
-    icon: "nodejs.svg",
-    title: "NodeJs",
-  },
-  // {
-  //   icon: "expressjs.svg",
-  //   title: "ExpressJS",
-  // },
-  {
-    icon: "sst.svg",
-    title: "SST",
-  }, 
-  {
-    icon: "redis.svg",
-    title: "Redis",
-  },
-  {
-    icon: "docker.svg",
-    title: "Docker",
-  },
-  {
-    icon: "postgresql.svg",
-    title: "PostgreSQL",
-  },
-  {
-    icon: "git.svg",
-    title: "Git",
-  },
-];
-
-const workExperiences = [
-  {
-    title: "Freelance Fullstack Developer",
-    date: "March, 2025 - Present",
-  },
-  {
-    title: "Full Stack Engineer",
-    date: "Sep, 2024 - March, 2025",
-    company: "Blockchain Startup",
-    isPresent: true,
-    points: [
-      "Developing a WLS to Offset carbon emissions with seamless integration.",
-      "Enabled real-time updates via configurable webhooks and callback mechanisms.",
-      "Architect solution with rate-limiting, caching, and auto-scaling mechanisms.",
-    ],
-  },
-  {
-    title: "Full Stack Engineer",
-    date: "June, 2023 - June, 2024",
-    company: "Service Based",
-    points: [
-      'Built an <span class="highlight">Image Annonation</span> tool for creating Annonations of Tractors for <span class="highlight">New Holland</span>.',
-      "Utilized NodeJs, MySQL and FabricJs as the core tech stack.",
-      "Assisted in the building and integrated a real-time monitoring system using Node.Js and WebSockets.",
-    ],
-  },
-  {
-    title: "Frontend Developer Intern",
-    date: "Jan, 2023 - June, 2023",
-    points: [
-      "Revamped UI and Improved UX for Various Client Web Apps",
-      "Contributed to web apps involving JavaScript, jQuery, CSS,HTML and MySQL.",
-      "Implemented backend functionalities, gaining hands-on experience in Node.js along with Express.js.",
-    ],
-  },
-  {
-    title: "Freelance Frontend Developer",
-    date: "June, 2022 - Nov, 2023",
-  },
+const contactLinks = [
+  { label: "Email", href: profile.links.email, external: false },
+  { label: "GitHub", href: profile.links.github, external: true },
+  { label: "X / Twitter", href: profile.links.x, external: true },
+  { label: "Book a call", href: profile.links.calendar, external: true },
 ];
 
 export default function Home() {
-  const [isContactOpen, setIsContactOpen] = useState(false);
   return (
-    <>
-      <div className="min-w-screen min-h-screen px-2">
-        <ScrollArea className="h-[calc(100vh-3rem)]">
-          <motion.img
-            src="/images/space.png"
-            alt="landscape"
-            className="w-20 h-20 rounded-full object-cover absolute top-10 left-0"
-            initial={{ x: 1200, scale: 1 }}
-            animate={{
-              x: 1000,
-              scale: 0.5,
-              rotate: [0, 360],
-              transition: {
-                x: { ease: "easeOut", duration: 24 },
-                scale: { ease: "easeOut", duration: 24 },
-                rotate: {
-                  duration: 10,
-                  ease: "linear",
-                  repeat: Infinity,
-                },
-              },
-            }}
-          />
+    <main className="min-h-screen bg-background text-foreground lg:grid lg:grid-cols-[minmax(380px,0.84fr)_minmax(0,1.16fr)] lg:items-start dark:bg-stone-950 dark:text-stone-100">
+      <aside className="scroll-thin border-b border-border bg-background dark:border-stone-800 dark:bg-stone-950 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto lg:overscroll-contain lg:border-b-0 lg:border-r lg:motion-safe:scroll-smooth">
+        <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-7 pb-24 pt-14 sm:px-10 sm:pt-16 lg:min-h-full lg:max-w-none lg:px-12 lg:pb-[clamp(1.625rem,3.5vh,3rem)] lg:pt-[clamp(1.875rem,4vh,3.25rem)] xl:px-16 2xl:px-20">
+          <header className="mb-14 flex flex-col items-start sm:mb-16 lg:mb-[clamp(1.625rem,3.8vh,3rem)]">
+            <h1 className="text-base font-medium leading-snug tracking-[-0.015em] text-foreground dark:text-stone-100">{profile.name}</h1>
+            <p className="mt-1 text-sm leading-snug text-muted-foreground dark:text-stone-400">{profile.role}</p>
+          </header>
 
-          <section className="flex flex-col max-w-2xl  items-start justify-start pt-40 gap-4 min-h-screen w-11/12  md:w-3/5 mx-auto">
-            <motion.h1
-              initial={{ y: 10, opacity: 0, filter: "blur(10px)" }}
-              animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className={`text-4xl text-left font-semibold ${instrumentSerif.className}`}
-            >
-              Nitin Jaswal
-            </motion.h1>
-            <motion.h1
-              initial={{ y: 10, opacity: 0, filter: "blur(10px)" }}
-              animate={{ y: 0, opacity: 0.9, filter: "blur(0px)" }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="w-full text-start leading-relaxed "
-            >
-              a Software / Fullstack Engineer passionate about crafting
-              meaningful products and user experiences. Lately, I&apos;ve been
-              diving deeper into app development and exploring the exciting
-              world of Generative AI. Always learning, always building — trying
-              to live up to the word <span className="italic">engineer</span>.
-            </motion.h1>
-
-            <div className="flex items-center justify-center gap-4 mt-10 has-[img:hover]:saturate-0">
-              <motion.img
-                initial={{ y: 30, opacity: 0, filter: "blur(10px)" }}
-                animate={{ y: 0, opacity: 1, filter: "blur(0px) saturate(0) contrast(1.2) brightness(0.8)" }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                src="/images/nitin-0.jpeg"
-                alt="Nitin Jaswal"
-                width={200}
-                height={200}
-                className="h-52 w-56 rounded-md object-cover ring ring-stone-800 border border-stone-700 hover:saturate-100 "
-              />
-              <motion.img
-                initial={{ y: 30, opacity: 0, filter: "blur(10px)" }}
-                animate={{ y: 0, opacity: 1, filter: "blur(0px) saturate(0)" }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                src="/images/nitin-second.jpg"
-                alt="Nitin Jaswal"
-                width={200}
-                height={200}
-                className="h-52 w-56 rounded-md  object-cover border ring ring-stone-800 border-stone-600 hover:saturate-100 "
-              />
-              <motion.img
-                initial={{ y: 30, opacity: 0, filter: "blur(10px)" }}
-                animate={{ y: 0, opacity: 1, filter: "blur(0px) saturate(0)" }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                src="/images/nitin-third.jpg"
-                alt="Nitin Jaswal"
-                width={200}
-                height={200}
-                className="h-52 w-56  rounded-md object-cover border ring ring-stone-800 border-stone-600 hover:saturate-100 "
-              />
-            </div>
+          <section aria-labelledby="profile-heading" className="max-w-lg">
+            <h2 id="profile-heading" className="mb-3.5 text-sm font-medium tracking-[-0.01em] text-foreground dark:text-stone-100">Today</h2>
+            <p className="text-[13.5px] leading-[1.7] text-muted-foreground dark:text-stone-400">{profile.summary}</p>
           </section>
 
-          <section className="min-w-screen flex items-center justify-center min-h-screen">
-            <div className="max-w-xl md:max-w-3xl w-full mx-auto">
-              <div className="w-full py-4">
-                <h1
-                  className={`${instrumentSerif.className} text-3xl mb-20 text-center`}
-                >
-                  Timeline
-                </h1>
-                <div className="mx-4 has-[div:hover]:text-neutral-400">
-                  {workExperiences.map((work, index) => (
-                    <div
-                      className="hover:text-white group py-4 cursor-pointer transition-colors flex flex-col md:flex-row justify-between items-start md:items-center gap-1 md:gap-3"
-                      key={index}
+          <div className="mt-14 space-y-14 sm:mt-16 sm:space-y-16 lg:mt-[clamp(1.5rem,3.3vh,2.75rem)] lg:space-y-[clamp(1.5rem,3.3vh,2.75rem)]">
+            <section aria-labelledby="experience-heading">
+              <h2 id="experience-heading" className="mb-1 text-sm font-medium tracking-[-0.01em] text-foreground dark:text-stone-100">Experience</h2>
+
+              <ol className="divide-y divide-border/60 dark:divide-stone-800/70">
+                {workExperiences.map((work) => {
+                  const isPresent = /present/i.test(work.date);
+
+                  return (
+                    <li
+                      key={`${work.title}-${work.date}`}
+                      className="grid gap-y-1.5 py-[clamp(0.5rem,1.15vh,0.9rem)] last:pb-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-x-6 sm:gap-y-0"
                     >
-                      <div className="text-neutral-400 group-hover:text-white transition-colors ">{work.date}</div>
-                      <div className="border border-dashed border-neutral-700 flex-1 hidden md:block" />
-                      <div className="flex items-center gap-2 ">
-                        {work.title}
+                      <div className="min-w-0">
+                        <div className="flex min-w-0 items-center gap-2">
+                          <span className="truncate text-[13.5px] leading-snug text-foreground dark:text-stone-200">{work.title}</span>
+                          {isPresent && (
+                            <span className="relative flex h-1.5 w-1.5 shrink-0" aria-hidden="true">
+                              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500/60" />
+                              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                            </span>
+                          )}
+                        </div>
+                        {work.company && (
+                          <p className="mt-1.5 truncate text-[11.5px] leading-snug text-muted-foreground dark:text-stone-500">{work.company}</p>
+                        )}
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
+                      <span className="shrink-0 text-[11.5px] leading-snug text-muted-foreground dark:text-stone-500 sm:whitespace-nowrap sm:text-right">
+                        {work.date}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ol>
+            </section>
 
-          <section className="max-w-xl mx-auto flex flex-col gap-10 items-center h-screen justify-center">
-            <h1 className={`text-3xl ${instrumentSerif.className}`}>
-              Tech Cloud
-            </h1>
-            <div className="grid grid-cols-4 gap-8">
-              {icons.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center gap-2 group"
-                >
-                  <Image
-                    width={48}
-                    height={48}
-                    src={item.icon}
-                    alt={item.title}
-                    className="h-12 w-12 saturate-0 invert "
-                  />
-                  <span className="text-xs opacity-90 group-hover:opacity-100 tracking-wider transition-opacity">
-                    {item.title}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </section>
+            <section aria-labelledby="stack-heading">
+              <h2 id="stack-heading" className="mb-5 text-sm font-medium tracking-[-0.01em] text-foreground dark:text-stone-100 lg:mb-[clamp(0.75rem,1.9vh,1.375rem)]">Working stack</h2>
+              <ul className="grid grid-cols-2 gap-x-8 gap-y-5 sm:grid-cols-3 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-[clamp(0.75rem,1.75vh,1.375rem)]">
+                {skills.map((skill) => (
+                  <li key={skill.title} className="flex min-w-0 items-center gap-2.5">
+                    <Image
+                      src={`/${skill.icon}`}
+                      alt=""
+                      width={20}
+                      height={20}
+                      className="h-5 w-5 shrink-0 object-contain"
+                    />
+                    <span className="truncate text-[12px] leading-none text-muted-foreground dark:text-stone-400">{skill.title}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
 
-          <section className="max-w-4xl mx-auto h-96 md:min-h-screen flex rounded-xl flex-col gap-10 items-center justify-center">
-            <div className="w-full relative grid md:grid-cols-2 rounded-xl overflow-hidden">
-              <div
-                className={cn(
-                  "bg-neutral-800 p-6 flex flex-col items-center justify-center gap-4",
-                  isContactOpen && "max-sm:h-[400px] max-sm:pb-40"
-                )}
-              >
-                <h2
-                  className={`${instrumentSerif.className}  text-4xl`}
-                >
-                  Let&apos;s build your Next Big Idea
-                </h2>
-
-                <div className="relative w-full">
-                  <motion.button
-                    onClick={() => setIsContactOpen(!isContactOpen)}
-                    className="w-full bg-white text-primary p-3 rounded-xl flex items-center mt-4 justify-center gap-2 ring ring-neutral-600"
+          <footer className="mt-14 sm:mt-16 lg:mt-auto lg:pt-[clamp(1.5rem,3.3vh,2.75rem)]">
+            <h2 className="mb-3 text-sm font-medium tracking-[-0.01em] text-foreground dark:text-stone-100">More</h2>
+            <nav aria-label="Contact links" className="flex flex-wrap gap-x-5 gap-y-2.5 text-[13px] text-muted-foreground dark:text-stone-400">
+              {contactLinks.map((contact) => {
+                return (
+                  <Link
+                    key={contact.label}
+                    href={contact.href}
+                    target={contact.external ? "_blank" : undefined}
+                    rel={contact.external ? "noopener noreferrer" : undefined}
+                    aria-label={contact.label}
+                    className="border-b border-current pb-px transition-colors hover:text-foreground dark:hover:text-stone-100"
                   >
-                    <Sparkle className="h-4 w-4" />
-                    Get in Touch
-                  </motion.button>
+                    {contact.label}
+                  </Link>
+                );
+              })}
+            </nav>
+          </footer>
+        </div>
+      </aside>
 
-                  {isContactOpen && (
-                    <div className="mt-6 relative">
-                      <AnimatePresence>
-                        <motion.div
-                          className="flex flex-col justify-center gap-2 w-full absolute left-0 right-0"
-                          initial={{ opacity: 1 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                        >
-                          <motion.a
-                            initial={{ y: -20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -10, opacity: 0 }}
-                            transition={{ duration: 0.2, delay: 0 }}
-                            href="https://twitter.com/nitinjaswal26"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-20"
-                          >
-                            <Twitter className="h-5 w-5" />
-                            twitter / X
-                          </motion.a>
+      <section id="projects" aria-labelledby="projects-heading" className="min-w-0 bg-background px-5 pb-16 pt-8 dark:bg-stone-950 sm:px-10 lg:px-[clamp(2rem,5vw,5rem)] lg:pt-[clamp(2rem,5vh,4rem)]">
+        <header className="mb-12 flex items-end justify-between gap-6 border-b border-border pb-5 dark:border-stone-800">
+          <div>
+            <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-muted-foreground dark:text-stone-500">Selected work</p>
+            <h2 id="projects-heading" className="mt-2 font-display text-2xl font-medium tracking-[-0.03em] sm:text-3xl">
+              Projects
+            </h2>
+          </div>
+          <p className="hidden max-w-[210px] text-right text-xs leading-relaxed text-muted-foreground dark:text-stone-500 sm:block">
+            Product engineering across web platforms, AI, and focused digital experiences.
+          </p>
+        </header>
 
-                          <motion.a
-                            initial={{ y: -20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -10, opacity: 0 }}
-                            transition={{ duration: 0.2, delay: 0.1 }}
-                            href="mailto:nitinjaswal2616@gmail.com"
-                            className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-10"
-                          >
-                            <Mail className="h-5 w-5" />
-                            nitinjaswal2616
-                          </motion.a>
+        <div>
+          {projects.map((project) => (
+            <article key={project.title} className="group border-b border-border py-10 first:pt-0 dark:border-stone-800 lg:py-14">
+              <div className="grid gap-7 xl:grid-cols-[minmax(0,1fr)_220px] xl:items-stretch">
+                <div>
+                  <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-muted ring-1 ring-border dark:bg-stone-900 dark:ring-stone-800">
+                    <Image
+                      src={project.photo}
+                      alt={`${project.title} project preview`}
+                      fill
+                      sizes="(min-width: 1280px) 420px, (min-width: 1024px) 50vw, 100vw"
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.015]"
+                    />
+                    <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-black/[0.06] dark:ring-white/[0.07]" />
+                  </div>
+                </div>
 
-                          <motion.a
-                            initial={{ y: -20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -10, opacity: 0 }}
-                            transition={{ duration: 0.2, delay: 0.2 }}
-                            href="https://cal.com/nitinjaswal/30min"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-neutral-700 hover:bg-neutral-600 p-3 w-full rounded-full flex gap-2 items-center justify-center z-0"
-                          >
-                            <Calendar className="h-5 w-5" />
-                            schedule a call
-                          </motion.a>
-                        </motion.div>
-                      </AnimatePresence>
-                    </div>
+                <div className="flex flex-col xl:h-full">
+                  <h3 className="font-display text-base font-medium leading-snug tracking-[-0.02em]">
+                    {project.title}
+                  </h3>
+                  <p className="mt-4 text-[13px] leading-[1.65] text-muted-foreground dark:text-stone-400">{project.description}</p>
+
+                  <ul className="mt-5 flex flex-wrap gap-x-3 gap-y-1.5 text-[9px] font-medium uppercase tracking-wide text-muted-foreground dark:text-stone-500">
+                    {project.tech.map((technology) => (
+                      <li key={technology}>{technology}</li>
+                    ))}
+                  </ul>
+
+                  {project.live ? (
+                    <Link
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-7 inline-flex w-fit items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 text-[11px] font-medium text-muted-foreground transition-colors hover:border-foreground hover:text-foreground dark:border-stone-800 dark:text-stone-400 dark:hover:border-stone-600 dark:hover:text-stone-100 xl:mt-auto"
+                    >
+                      View project
+                      <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </Link>
+                  ) : (
+                    <p className="mt-7 text-[9px] font-medium uppercase tracking-[0.14em] text-muted-foreground dark:text-stone-600 xl:mt-auto">Private / In progress</p>
                   )}
                 </div>
-
-                <motion.div className="flex items-center gap-1">
-                  <div className="bg-green-500 h-2 w-2 rounded-xl" />
-                  <span className="text-xs">Open for New Oppurtuinities</span>
-                </motion.div>
               </div>
-              <Image
-                height={500}
-                width={700}
-                src="/images/me.jpg"
-                alt="landscape"
-                className="hidden md:inline h-[500px] w-full object-cover object-top"
-              />
-            </div>
-          </section>
-        </ScrollArea>
-      </div>
-    </>
+            </article>
+          ))}
+        </div>
+
+        <footer className="pb-2 pt-16 text-center">
+          <p className="font-display text-lg font-medium tracking-[-0.02em]">Have something interesting in mind?</p>
+          <Link href={profile.links.email} className="mt-4 inline-flex items-center gap-2 border-b border-foreground pb-1 text-xs dark:border-stone-200">
+            Start a conversation <ArrowUpRight className="h-3.5 w-3.5" />
+          </Link>
+        </footer>
+      </section>
+    </main>
   );
 }

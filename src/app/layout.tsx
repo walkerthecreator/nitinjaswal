@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from 'next/font/google';
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import { Analytics } from "@vercel/analytics/react";
 
-const inter = Inter({ subsets: ["latin"] });
+const themeScript = `
+  try {
+    const storedTheme = localStorage.getItem("portfolio-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.classList.toggle("dark", storedTheme ? storedTheme === "dark" : prefersDark);
+  } catch (_) {}
+`;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nitinjaswal.me"),
   title: "Nitin Jaswal",
-  description: "Portfolio of Nitin Jaswal - Design Engineer crafting digital experiences with code and creativity.",
-  keywords: ["Nitin Jaswal", "Design Engineer", "Portfolio", "Web Developer", "Frontend Developer"],
+  description: "Portfolio of Nitin Jaswal, a product engineer building durable software products.",
+  keywords: ["Nitin Jaswal", "Product Engineer", "Software Engineer", "Portfolio"],
   authors: [{ name: "Nitin Jaswal" }],
   creator: "Nitin Jaswal",
   openGraph: {
@@ -18,21 +24,21 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://nitinjaswal.me",
     siteName: "Nitin Jaswal",
-    title: "Nitin Jaswal - Design Engineer",
-    description: "Portfolio of Nitin Jaswal - Design Engineer crafting digital experiences with code and creativity.",
+    title: "Nitin Jaswal - Product Engineer",
+    description: "Portfolio of Nitin Jaswal, a product engineer building durable software products.",
     images: [
       {
         url: "/images/nitin.jpg",
         width: 1200,
         height: 630,
-        alt: "Nitin Jaswal - Design Engineer",
+        alt: "Nitin Jaswal - Product Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nitin Jaswal - Design Engineer",
-    description: "Portfolio of Nitin Jaswal - Design Engineer crafting digital experiences with code and creativity.",
+    title: "Nitin Jaswal - Product Engineer",
+    description: "Portfolio of Nitin Jaswal, a product engineer building durable software products.",
     images: ["/images/nitin.jpg"],
     creator: "@nitinjaswal",
   },
@@ -49,6 +55,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://nitinjaswal.me",
+    types: {
+      "text/plain": "https://nitinjaswal.me/llms.txt",
+    },
   },
 };
 
@@ -58,8 +67,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={ inter.className + " bg-black text-white text-sm"}>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className={`${GeistSans.className} ${GeistSans.variable} bg-background text-foreground text-sm`}>
         <Nav />
         {children}
         <Analytics/>
